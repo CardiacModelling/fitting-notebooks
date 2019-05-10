@@ -79,7 +79,7 @@ boundaries = pints.RectangularBoundaries(lower, upper)
 
 # Perform an optimization
 x0 = x_true * 1.2
-optimiser = pints.Optimisation(
+optimiser = pints.OptimisationController(
     score, x0, boundaries=boundaries, method=pints.CMAES)
 
 print('Running...')
