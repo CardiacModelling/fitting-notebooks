@@ -10,7 +10,7 @@ Please see the [Myokit](https://github.com/MichaelClerx/myokit/) and [Pints](htt
 
 ## General approach
 
-- [Models are written in Myokit's MMT syntax](https://myokit.readthedocs.io/syntax/index.html), but many projects start by [downloading a CellML model](https://models.cellml.org/electrophysiology) and then [importing it](https://myokit.readthedocs.io/api_formats/cellml.html).
+- [Models are written in Myokit's MMT syntax](https://myokit.readthedocs.io/syntax/index.html), usually by [downloading a CellML model](https://models.cellml.org/electrophysiology) and then [importing it](https://myokit.readthedocs.io/api_formats/cellml.html).
 - [Simulations are run with the `Simulation` class](https://myokit.readthedocs.io/api_simulations/Simulation.html), which uses CVODE to solve the ODEs.
   - For ion-channel stuff with piecewise constant voltage-step protocols (no ramps or sine waves) it's usually faster to use Myokit's [Hodgkin-Huxley model](https://myokit.readthedocs.io/api_library/hh.html) or [Markov model](https://myokit.readthedocs.io/api_library/markov.html) classes to run analytical simulations)
 - [A pints.ForwardModel](https://github.com/pints-team/pints/blob/master/examples/writing-a-model.ipynb) is wrapped around a Myokit simulation.
