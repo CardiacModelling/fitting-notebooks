@@ -18,7 +18,7 @@ Please see the [Myokit](https://github.com/MichaelClerx/myokit/) and [Pints](htt
 - A Pints [error measure](https://pints.readthedocs.io/en/latest/error_measures.html) or [likelihood function](https://pints.readthedocs.io/en/latest/log_likelihoods.html) is defined
 - Using this function, [optimisation](https://github.com/pints-team/pints/blob/master/examples/optimisation-first-example.ipynb) or [Bayesian inference](https://github.com/pints-team/pints/blob/master/examples/sampling-first-example.ipynb) is run
 
-## Simulating with Myokit
+## Examples: Simulation with Myokit
 
 1. [Running whole-cell simulations in Myokit](https://myokit.readthedocs.io/guide/simulations.html)
 2. [Running ion current simulations](ion-currents/ion-current-models.ipynb)
@@ -26,7 +26,7 @@ Please see the [Myokit](https://github.com/MichaelClerx/myokit/) and [Pints](htt
 3. [Simulating a novel protocol with steps and ramps](ion-currents/steps-and-ramps.ipynb)
 4. [Simulating a novel protocol with steps and a sine wave](ion-currents/steps-and-sine-waves.ipynb)
 
-## Combining PINTS and Myokit
+## Examples: Inference using Myokit and PINTS
 
 1. [Fitting conductances in a whole-cell model](https://github.com/MichaelClerx/myokit-pints-examples/tree/master/whole-cell-conductances)
 2. [A real-life example](https://github.com/CardiacModelling/FourWaysOfFitting/blob/master/python/model.py) of a ForwardModel class used for sine-wave siulations as well as analytical step-protocol simulations
