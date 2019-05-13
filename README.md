@@ -21,7 +21,7 @@ Similarly, Myokit comes with some [example models](http://myokit.org/examples/) 
 1. [Running whole-cell simulations in Myokit](https://myokit.readthedocs.io/guide/simulations.html)
 2. [Running ion current simulations](ion-currents/ion-current-models.ipynb)
 2. [Exact solvers for ion currents](ion-currents/exact-simulation-of-step-protocols.ipynb)
-3. Simulating a novel protocol with steps and ramps
+3. [Simulating a novel protocol with steps and ramps](ion-currents/steps-and-ramps.ipynb)
 4. Simulating a novel protocol with steps and a sine wave
 
 ## Fitting examples
