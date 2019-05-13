@@ -4,11 +4,13 @@ This repository contains examples showing how to fit [Myokit](https://github.com
 
 ## How it works
 
-- Models are written in Myokit's MMT syntax (typically imported from CellML)
-- Simulations are run with Myokit's `Simulation` class, which uses CVODE internally (but note that for ion-channel stuff it's usually faster to use Myokit's HH or Markov modules to obtain analytical simulations)
-- A Pints statistical model is wrapped around a Myokit simulation (in inference terms, this wrapped simulation is our _forward model_)
+- Models are written in Myokit's [MMT syntax](https://myokit.readthedocs.io/syntax/index.html)
+  - Many project start by [downloading a CellML model](https://models.cellml.org/electrophysiology) and then [importing it into Myokit](https://myokit.readthedocs.io/api_formats/cellml.html).
+- Simulations are run with Myokit's [`Simulation` class](https://myokit.readthedocs.io/api_simulations/Simulation.html), which uses CVODE internally
+  - For ion-channel stuff **with voltage-step protocols** (no ramps or sine waves) it's usually faster to use Myokit's [Hodgkin-Huxley model](https://myokit.readthedocs.io/api_library/hh.html) or [Markov model](https://myokit.readthedocs.io/api_library/markov.html) classes to run analytical simulations)
+- A [Pints ForwardModel](https://github.com/pints-team/pints/blob/master/examples/writing-a-model.ipynb) is wrapped around a Myokit simulation.
 - A Pints [error measure](https://pints.readthedocs.io/en/latest/error_measures.html) or [likelihood function](https://pints.readthedocs.io/en/latest/log_likelihoods.html) is defined
-- Using this function, optimisation or Bayesian inference is run
+- Using this function, [optimisation](https://github.com/pints-team/pints/blob/master/examples/optimisation-first-example.ipynb) or [Bayesian inference](https://github.com/pints-team/pints/blob/master/examples/sampling-first-example.ipynb) is run
 
 ## More details
 
