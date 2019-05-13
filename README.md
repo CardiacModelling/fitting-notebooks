@@ -2,6 +2,10 @@
 
 This repository contains examples showing how to fit [Myokit](https://github.com/MichaelClerx/myokit/) models to data using the [Pints](https://github.com/pints-team/pints) optimisation & inference framework.
 
+Pints comes with [examples](https://github.com/pints-team/pints/blob/master/examples/README.md) and [API documentation](https://pints.readthedocs.io/). [This pre-print](https://arxiv.org/abs/1812.07388) describes Pints' design, information on citing it is given [here](https://github.com/pints-team/pints/blob/master/CITATION).
+
+Similarly, Myokit comes with some [example models](http://myokit.org/examples/) and [API docs](https://myokit.readthedocs.io). [This publication in PBMB](https://doi.org/10.1016/j.pbiomolbio.2015.12.008) describes Myokit, and can be cited using the information [here](https://github.com/MichaelClerx/myokit/blob/master/CITATION).
+
 ## How it works
 
 - Models are written in Myokit's [MMT syntax](https://myokit.readthedocs.io/syntax/index.html)
@@ -12,11 +16,21 @@ This repository contains examples showing how to fit [Myokit](https://github.com
 - A Pints [error measure](https://pints.readthedocs.io/en/latest/error_measures.html) or [likelihood function](https://pints.readthedocs.io/en/latest/log_likelihoods.html) is defined
 - Using this function, [optimisation](https://github.com/pints-team/pints/blob/master/examples/optimisation-first-example.ipynb) or [Bayesian inference](https://github.com/pints-team/pints/blob/master/examples/sampling-first-example.ipynb) is run
 
-## More details
+## Examples
 
-Pints comes with [examples](https://github.com/pints-team/pints/blob/master/examples/README.md) and [API documentation](https://pints.readthedocs.io/). [This pre-print](https://arxiv.org/abs/1812.07388) describes Pints' design, information on citing it is given [here](https://github.com/pints-team/pints/blob/master/CITATION).
+1. [Fitting conductances in a whole-cell model](https://github.com/MichaelClerx/myokit-pints-examples/tree/master/whole-cell-conductances)
+2. Simulating a traditional voltage-step protocol
+3. Simulating a novel protocol with steps and ramps
+4. Simulating a novel protocol with steps and a sine wave
+5. 
 
-Similarly, Myokit comes with some [example models](http://myokit.org/examples/) and [API docs](https://myokit.readthedocs.io). [This publication in PBMB](https://doi.org/10.1016/j.pbiomolbio.2015.12.008) describes Myokit, and can be cited using the information [here](https://github.com/MichaelClerx/myokit/blob/master/CITATION).
+## Some recommendations for fitting
+
+1. Whenever possible, fit to **time-series data**, not to processed values such as time constants, IV-, or (in)activation curves. [This figure](https://www.biorxiv.org/content/10.1101/609875v1.full#F11) shows why: A score function defined on processed values (method 2 in the paper) can have a complex surface, full of local minima, while similar functions defined on the underlying time-series data (methods 3 and 4 in the paper) are convex and smooth.
+2. Define prior expectations on transition rates as well as parameters. See [https://www.biorxiv.org/content/10.1101/609875v1.full#F3](This figure) and the [supplementary materials](https://www.biorxiv.org/content/10.1101/609875v1.supplementary-material).
+3. Searching in a log-transformed parameter space [can make your problem more convex](https://dx.doi.org/10.1093/bioinformatics/btz020) (which is a good thing).
+4. Use an analytic solver if possible, if using an adaptive ODE solver make sure you [set very fine tolerances](https://mirams.wordpress.com/2018/10/17/ode-errors-and-optimisation/).
+5. Test the reliability of your fit by running repeated fits from different starting points (e.g. sampled uniformly from your prior).
 
 ## Installation
 
