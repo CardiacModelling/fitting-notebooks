@@ -24,7 +24,7 @@ Similarly, Myokit comes with some [example models](http://myokit.org/examples/) 
 4. Simulating a novel protocol with steps and a sine wave
 5. [A real-life example](https://github.com/CardiacModelling/FourWaysOfFitting/blob/master/python/model.py) of a model that can do sine-wave siulations as well as analytical step-protocol simulations
 6. An example of a [parameter transform](https://github.com/CardiacModelling/FourWaysOfFitting/blob/master/python/transformation.py). This could be used in a forward model implementation, so that the parameters the model presents to the optimiser/sampler are in a transformed space.
-5. [Example code](https://pints.readthedocs.io/en/latest/boundaries.html) for a [pints.Boundaries](https://pints.readthedocs.io/en/latest/boundaries.html) object for a hERG model. This could be adapted to be a [pints.Prior](https://pints.readthedocs.io/en/latest/log_priors.html).
+5. [Example code](https://pints.readthedocs.io/en/latest/boundaries.html) for a [pints.Boundaries](https://pints.readthedocs.io/en/latest/boundaries.html) object for a hERG model. This could be adapted to be a [pints.LogPrior](https://pints.readthedocs.io/en/latest/log_priors.html).
 
 ## Installation
 
