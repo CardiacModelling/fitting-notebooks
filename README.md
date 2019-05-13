@@ -33,7 +33,7 @@ Please see the [Myokit](https://github.com/MichaelClerx/myokit/) and [Pints](htt
 # Some recommendations for fitting
 
 1. Whenever possible, fit to **time-series data**, not to processed values such as time constants, IV-, or (in)activation curves. [This figure](https://www.biorxiv.org/content/10.1101/609875v1.full#F11) shows why: A score function defined on processed values (method 2 in the paper) can have a complex surface, full of local minima, while similar functions defined on the underlying time-series data (methods 3 and 4 in the paper) are convex and smooth.
-2. Define prior expectations on transition rates as well as parameters. See [https://www.biorxiv.org/content/10.1101/609875v1.full#F3](This figure) and the [supplementary materials](https://www.biorxiv.org/content/10.1101/609875v1.supplementary-material).
+2. Define prior expectations on transition rates as well as parameters. See [this figure](https://www.biorxiv.org/content/10.1101/609875v1.full#F3) and the [supplementary materials](https://www.biorxiv.org/content/10.1101/609875v1.supplementary-material).
 3. Searching in a log-transformed parameter space [can make your problem more convex](https://dx.doi.org/10.1093/bioinformatics/btz020) (which is a good thing).
 4. Use an analytic solver if possible, if using an adaptive ODE solver make sure you [set very fine tolerances](https://mirams.wordpress.com/2018/10/17/ode-errors-and-optimisation/).
 5. Test the reliability of your fit by running repeated fits from different starting points (e.g. sampled uniformly from your prior).
