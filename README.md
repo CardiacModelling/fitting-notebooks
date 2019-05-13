@@ -16,15 +16,19 @@ Similarly, Myokit comes with some [example models](http://myokit.org/examples/) 
 - A Pints [error measure](https://pints.readthedocs.io/en/latest/error_measures.html) or [likelihood function](https://pints.readthedocs.io/en/latest/log_likelihoods.html) is defined
 - Using this function, [optimisation](https://github.com/pints-team/pints/blob/master/examples/optimisation-first-example.ipynb) or [Bayesian inference](https://github.com/pints-team/pints/blob/master/examples/sampling-first-example.ipynb) is run
 
-## Examples
+## Simulation examples
 
-1. [Fitting conductances in a whole-cell model](https://github.com/MichaelClerx/myokit-pints-examples/tree/master/whole-cell-conductances)
-2. Simulating a traditional voltage-step protocol
+1. [Running (whole-cell or single-channel) simulations in Myokit](https://myokit.readthedocs.io/guide/simulations.html)
+2. Simulating a traditional voltage-step protocol with HH and Markov models
 3. Simulating a novel protocol with steps and ramps
 4. Simulating a novel protocol with steps and a sine wave
-5. [A real-life example](https://github.com/CardiacModelling/FourWaysOfFitting/blob/master/python/model.py) of a model that can do sine-wave siulations as well as analytical step-protocol simulations
-6. An example of a [parameter transform](https://github.com/CardiacModelling/FourWaysOfFitting/blob/master/python/transformation.py). This could be used in a forward model implementation, so that the parameters the model presents to the optimiser/sampler are in a transformed space.
-5. [Example code](https://pints.readthedocs.io/en/latest/boundaries.html) for a [pints.Boundaries](https://pints.readthedocs.io/en/latest/boundaries.html) object for a hERG model. This could be adapted to be a [pints.LogPrior](https://pints.readthedocs.io/en/latest/log_priors.html).
+
+## Fitting examples
+
+1. [Fitting conductances in a whole-cell model](https://github.com/MichaelClerx/myokit-pints-examples/tree/master/whole-cell-conductances)
+2. [A real-life example](https://github.com/CardiacModelling/FourWaysOfFitting/blob/master/python/model.py) of a ForwardModel class used for sine-wave siulations as well as analytical step-protocol simulations
+3. An example of a [parameter transform](https://github.com/CardiacModelling/FourWaysOfFitting/blob/master/python/transformation.py). This could be used in a forward model implementation, so that the parameters the model presents to the optimiser/sampler are in a transformed space.
+4. [Example code](https://pints.readthedocs.io/en/latest/boundaries.html) for a [pints.Boundaries](https://pints.readthedocs.io/en/latest/boundaries.html) object for a hERG model. This could be adapted to be a [pints.LogPrior](https://pints.readthedocs.io/en/latest/log_priors.html).
 
 ## Installation
 
