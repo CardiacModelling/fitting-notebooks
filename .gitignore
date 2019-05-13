@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Setuptools files
+*.egg-info
+
+# Jupyter checkpoints
+.ipynb_checkpoints/
+
+# Apple stuff
+.DS_Store
+
+# R files
+.Rhistory
+.coverage
+
+# vscode
+.vscode
+
