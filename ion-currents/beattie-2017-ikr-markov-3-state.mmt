@@ -11,8 +11,8 @@ ikr.y3 = 0
 # Simulation engine variables
 #
 [engine]
-time = 0 bind time
-pace = 0 bind pace
+time = 0 [ms] bind time
+pace = 0 [ms] bind pace
 
 #
 # Membrane potential
@@ -31,6 +31,7 @@ EK = -85 [mV]
 [ikr]
 use membrane.V
 IKr = p9 * y3 * (V - nernst.EK)
+    in [nA]
 y4 = 1 - y1 - y2 - y3
 k12 = p1 * exp( p2 * V)
 k21 = p3 * exp(-p4 * V)
@@ -47,7 +48,7 @@ p5 = 0.08730 [1/ms]
 p6 = 8.91e-3 [1/mV]
 p7 = 5.15e-3 [1/ms]
 p8 = 0.03158 [1/mV]
-p9 = 0.15240 [mS/uF]
+p9 = 0.15240 [uS]
 
 [[script]]
 import myokit
