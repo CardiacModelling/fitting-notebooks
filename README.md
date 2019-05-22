@@ -21,9 +21,10 @@ Please see the [Myokit](https://github.com/MichaelClerx/myokit/) and [Pints](htt
 
 1. [Running whole-cell simulations in Myokit](https://myokit.readthedocs.io/guide/simulations.html)
 2. [Running ion current simulations](ion-currents/ion-current-models.ipynb)
-2. [Exact solvers for voltage-step protocols](ion-currents/exact-simulation-of-step-protocols.ipynb)
-3. [Simulating a novel protocol with steps and ramps](ion-currents/steps-and-ramps.ipynb)
-4. [Simulating a novel protocol with steps and a sine wave](ion-currents/steps-and-sine-waves.ipynb)
+3. [Exact solvers for voltage-step protocols](ion-currents/exact-simulation-of-step-protocols.ipynb)
+4. [Simulating a novel protocol with steps and ramps](ion-currents/steps-and-ramps.ipynb)
+5. [Simulating a novel protocol with steps and a sine wave](ion-currents/steps-and-sine-waves.ipynb)
+6. [Simulating arbitrary points with 'data clamp'](ion-currents/data-clamp.ipynb)
 
 ## Examples: Inference using Myokit and PINTS
 
