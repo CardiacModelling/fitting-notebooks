@@ -13,18 +13,18 @@ Please see the [Myokit](https://github.com/MichaelClerx/myokit/) and [Pints](htt
 - [Models are written in Myokit's MMT syntax](https://myokit.readthedocs.io/syntax/index.html), usually by [downloading a CellML model](https://models.cellml.org/electrophysiology) and then [importing it](https://myokit.readthedocs.io/api_formats/cellml.html).
 - [Simulations are run](https://myokit.readthedocs.io/api_simulations/Simulation.html) using the `Simulation` class, which uses CVODE to solve the ODEs.
   - For ion-channel stuff with piecewise constant voltage-step protocols (no ramps or sine waves) it's usually faster to use Myokit's [Hodgkin-Huxley model](https://myokit.readthedocs.io/api_library/hh.html) or [Markov model](https://myokit.readthedocs.io/api_library/markov.html) classes to run analytical simulations)
-- [A pints.ForwardModel](https://github.com/pints-team/pints/blob/master/examples/writing-a-model.ipynb) is wrapped around a Myokit simulation.
+- [A pints.ForwardModel](https://nbviewer.jupyter.org/github/pints-team/pints/blob/master/examples/writing-a-model.ipynb) is wrapped around a Myokit simulation.
 - [A pints.ErrorMeasure](https://pints.readthedocs.io/en/latest/error_measures.html) or [pints.LogLikelihood](https://pints.readthedocs.io/en/latest/log_likelihoods.html) is defined
-- [Optimisation](https://github.com/pints-team/pints/blob/master/examples/optimisation-first-example.ipynb) or [Bayesian inference](https://github.com/pints-team/pints/blob/master/examples/sampling-first-example.ipynb) is run.
+- [Optimisation](https://nbviewer.jupyter.org/github/pints-team/pints/blob/master/examples/optimisation-first-example.ipynb) or [Bayesian inference](https://nbviewer.jupyter.org/github/pints-team/pints/blob/master/examples/sampling-first-example.ipynb) is run.
 
 ## Examples: Simulation with Myokit
 
 1. [Running whole-cell simulations in Myokit](https://myokit.readthedocs.io/guide/simulations.html)
-2. [Running ion current simulations](ion-currents/ion-current-models.ipynb)
-3. [Exact solvers for voltage-step protocols](ion-currents/exact-simulation-of-step-protocols.ipynb)
-4. [Simulating a novel protocol with steps and ramps](ion-currents/steps-and-ramps.ipynb)
-5. [Simulating a novel protocol with steps and a sine wave](ion-currents/steps-and-sine-waves.ipynb)
-6. [Simulating arbitrary points with 'data clamp'](ion-currents/data-clamp.ipynb)
+2. [Running ion current simulations](https://nbviewer.jupyter.org/github/pints-team/myokit-pints-examples/blob/master/ion-currents/ion-current-models.ipynb)
+3. [Exact solvers for voltage-step protocols](https://nbviewer.jupyter.org/github/pints-team/myokit-pints-examples/blob/master/ion-currents/exact-simulation-of-step-protocols.ipynb)
+4. [Simulating a novel protocol with steps and ramps](https://nbviewer.jupyter.org/github/pints-team/myokit-pints-examples/blob/master/ion-currents/steps-and-ramps.ipynb)
+5. [Simulating a novel protocol with steps and a sine wave](https://nbviewer.jupyter.org/github/pints-team/myokit-pints-examples/blob/master/ion-currents/steps-and-sine-waves.ipynb)
+6. [Simulating arbitrary points with 'data clamp'](https://nbviewer.jupyter.org/github/pints-team/myokit-pints-examples/blob/master/ion-currents/data-clamp.ipynb)
 
 ## Examples: Inference using Myokit and PINTS
 
