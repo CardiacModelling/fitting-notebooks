@@ -41,3 +41,52 @@ Please see the [Myokit](https://github.com/MichaelClerx/myokit/) and [Pints](htt
 4. Use an analytic solver if possible, if using an adaptive ODE solver make sure you [set very fine tolerances](https://mirams.wordpress.com/2018/10/17/ode-errors-and-optimisation/). In Myokit, this can be done with [`Simulation.set_tolerance()`](https://myokit.readthedocs.io/api_simulations/Simulation.html#myokit.Simulation.set_tolerance).
 5. Test the reliability of your fit by running repeated fits from different starting points (e.g. sampled uniformly from your prior).
 6. Before doing any experiments, test the whole set-up with simulated data (and simulated noise).
+
+## More information
+
+### Papers about fitting
+
+*Calibration of ionic and cellular cardiac electrophysiology models*.
+Dominic G. Whittaker, Michael Clerx, Chon Lok Lei, David J. Christini, Gary R. Mirams.
+2020, WIREs Systems Biology and Medicine.
+https://doi.org/10.1002/wsbm.1482
+
+*Four ways to fit an ion channel model*.
+Michael Clerx, Kylie A. Beattie, David J. Gavaghan, Gary R. Mirams.
+2019, Biophysical Journal.
+https://doi.org/10.1016/j.bpj.2019.08.001
+
+### Papers using these methods
+
+*Rapid characterisation of hERG channel kinetics I: using an automated high-throughput system*.
+Chon Lok Lei, Michael Clerx, David J. Gavaghan, Liudmila Polonchuk, Gary R. Mirams, Ken Wang.
+2019, Biophysical Journal.
+https://doi.org/10.1016/j.bpj.2019.07.029
+
+*Rapid characterisation of hERG channel kinetics II: temperature dependence*.
+Chon Lok Lei, Michael Clerx, Kylie A. Beattie, Dario Melgari, Jules C. Hancox, David J. Gavaghan, Liudmila Polonchuk, Ken Wang, Gary R. Mirams.
+2019, Biophysical Journal
+https://doi.org/10.1016/j.bpj.2019.07.030
+
+### Software papers
+
+*Probabilistic Inference on Noisy Time Series (PINTS)*
+Michael Clerx, Martin Robinson, Ben Lambert, Chon Lok Lei, Sanmitra Ghosh, Gary R. Mirams, David J. Gavaghan.
+2019, Journal of Open Research Software.
+https://doi.org/10.5334/jors.252
+
+*Myokit: A simple interface to cardiac cellular electrophysiology*.
+Michael Clerx, Pieter Collins, Enno de Lange, Paul G.A. Volders.
+2016, Progress in Biophysics and Molecular Biology.
+https://doi.org/10.1016/j.pbiomolbio.2015.12.008 
+
+
+
+
+
+
+
+
+
+
+
