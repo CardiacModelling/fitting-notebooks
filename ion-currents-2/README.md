@@ -17,10 +17,10 @@ The final result is a fitting method that can be applied to real-world problems.
    - Shows how to set initial conditions
 
 3. Basic fitting
-    - Forward model
-    - Generating synthetic data (and choosing a noise model)
-    - Setting up a problem
+    - Writing a forward model
+    - Setting up a problem and error measure
     - Running an optimisation
+    - Interpreting the results
     
 4. Fitting to different protocols
     - Multiple protocols: Repeat, and combine
