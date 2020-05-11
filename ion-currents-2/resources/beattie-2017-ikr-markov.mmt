@@ -1,0 +1,53 @@
+[[model]]
+name: Beattie-2017-IKr-Markov
+author: Michael Clerx
+desc: Kylie's model as imported from the Mex file
+# Initial values
+ikr.y1 = 0
+ikr.y2 = 0
+ikr.y3 = 0
+ikr.y4 = 1
+
+#
+# Simulation engine variables
+#
+[engine]
+time = 0 [ms]
+    bind time
+
+#
+# Membrane potential
+#
+[membrane]
+V = 0 [mV]
+    bind pace
+    label membrane_potential
+
+[nernst]
+EK = -85 [mV]
+
+#
+# "Markov" (kinetic scheme) current model
+#
+[ikr]
+use membrane.V
+IKr = p9 * y3 * (V - nernst.EK)
+    in [nA]
+k12 = p1 * exp( p2 * V)
+k21 = p3 * exp(-p4 * V)
+k41 = p5 * exp( p6 * V)
+k14 = p7 * exp(-p8 * V)
+dot(y1) = -k12 * y1 + k21 * y2 + k41 * y4 - k14 * y1
+dot(y2) = -k14 * y2 + k41 * y3 + k12 * y1 - k21 * y2
+dot(y3) = -k21 * y3 + k12 * y4 + k14 * y2 - k41 * y3
+dot(y4) = -k12 * y4 + k21 * y3 + k14 * y1 - k41 * y4
+p1 = 2.26e-4 [1/ms]
+p2 = 0.06990 [1/mV]
+p3 = 3.45e-5 [1/ms]
+p4 = 0.05462 [1/mV]
+p5 = 0.08730 [1/ms]
+p6 = 8.91e-3 [1/mV]
+p7 = 5.15e-3 [1/ms]
+p8 = 0.03158 [1/mV]
+p9 = 0.15240 [uS]
+

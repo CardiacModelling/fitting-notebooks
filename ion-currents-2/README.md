@@ -23,6 +23,11 @@ The final result is a fitting method that can be applied to real-world problems.
     - Interpreting the results
     
 4. Fitting to different protocols
+
+In this part of the tutorial we look at some more voltage protocols we might wish to simulate, and discuss the methods most appropriate to each one.
+
+    - Step protocols and HH models
+    - Step protocols and Markov models
     - Multiple protocols: Repeat, and combine
     - Sine wave: modify the model?
     - AP signal: use data clamp
