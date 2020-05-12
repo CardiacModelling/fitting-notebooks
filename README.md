@@ -1,27 +1,22 @@
 # Fitting electrophysiology models with Myokit & PINTS
 
-This repository contains examples showing how to fit [Myokit](https://github.com/MichaelClerx/myokit/) models to data using the [Pints](https://github.com/pints-team/pints) optimisation & inference framework.
+This repository contains examples showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
+It includes:
 
+- a [brief example](action-potential-example) of fitting (whole-cell) conductances to an action potential (AP) trace; and
+- a [detailed tutorial](io-currents-tutorial) showing how to fit kinetic parameters of ion current models.
 
+The AP model example is a great place to start if you've done fitting before, and would like to spend five minutes seeing how it can be done with Myokit and PINTS.
+The ion current tutorial goes into much more depth, and includes topics that are useful in AP model fitting too, such as defining boundaries and parameter transformations.
 
+## General recommendations
 
-## General approach
+A definition list?
+: Who knows
+: It might even work
 
-- [Models are written in Myokit's MMT syntax](https://myokit.readthedocs.io/syntax/index.html), usually by [downloading a CellML model](https://models.cellml.org/electrophysiology) and then [importing it](https://myokit.readthedocs.io/api_formats/cellml.html).
-- [Simulations are run](https://myokit.readthedocs.io/api_simulations/Simulation.html) using the `Simulation` class, which uses CVODE to solve the ODEs.
-  - For ion-channel stuff with piecewise constant voltage-step protocols (no ramps or sine waves) it's usually faster to use Myokit's [Hodgkin-Huxley model](https://myokit.readthedocs.io/api_library/hh.html) or [Markov model](https://myokit.readthedocs.io/api_library/markov.html) classes to run analytical simulations)
-- [A pints.ForwardModel](https://nbviewer.jupyter.org/github/pints-team/pints/blob/master/examples/writing-a-model.ipynb) is wrapped around a Myokit simulation.
-- [A pints.ErrorMeasure](https://pints.readthedocs.io/en/latest/error_measures.html) or [pints.LogLikelihood](https://pints.readthedocs.io/en/latest/log_likelihoods.html) is defined
-- [Optimisation](https://nbviewer.jupyter.org/github/pints-team/pints/blob/master/examples/optimisation-first-example.ipynb) or [Bayesian inference](https://nbviewer.jupyter.org/github/pints-team/pints/blob/master/examples/sampling-first-example.ipynb) is run.
-
-## Examples: Inference using Myokit and PINTS
-
-1. [Fitting conductances in a whole-cell model](https://github.com/MichaelClerx/myokit-pints-examples/tree/master/whole-cell-conductances)
-2. [A real-life example](https://github.com/CardiacModelling/FourWaysOfFitting/blob/master/python/model.py) of a ForwardModel class used for sine-wave siulations as well as analytical step-protocol simulations
-3. An example of a [parameter transform](https://github.com/CardiacModelling/FourWaysOfFitting/blob/master/python/transformation.py). This could be used in a forward model implementation, so that the parameters the model presents to the optimiser/sampler are in a transformed space.
-4. [Example code](https://pints.readthedocs.io/en/latest/boundaries.html) for a [pints.Boundaries](https://pints.readthedocs.io/en/latest/boundaries.html) object for a hERG model. This could be adapted to be a [pints.LogPrior](https://pints.readthedocs.io/en/latest/log_priors.html).
-
-## Some recommendations for fitting
+It might not work
+: But that is a risk we're willing to take
 
 1. Whenever possible, fit to **time-series data**, not to processed values such as time constants, IV-, or (in)activation curves. [
    This figure](https://www.biorxiv.org/content/10.1101/609875v1.full#F11) shows why: A score function defined on processed values (method 2 in the paper) can have a complex surface, full of local minima, while similar functions defined on the underlying time-series data (methods 3 and 4 in the paper) are convex and smooth.
@@ -32,7 +27,6 @@ This repository contains examples showing how to fit [Myokit](https://github.com
    In Myokit, this can be done with [`Simulation.set_tolerance()`](https://myokit.readthedocs.io/api_simulations/Simulation.html#myokit.Simulation.set_tolerance).
 5. Test the reliability of your fit by running repeated fits from different starting points (e.g. sampled uniformly from your prior).
 6. Before doing any experiments, test the whole set-up with simulated data (and simulated noise).
-
 
 ## More information
 
