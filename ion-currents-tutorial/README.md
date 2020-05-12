@@ -30,6 +30,7 @@ The next four notebooks discuss different voltage protocols, and the simulation 
 - [Fitting to multiple simple step protocols](more-simulation-4-multiple-protocols.ipynb)
 
 ## Setting boundaries on parameters
+- Robust ForwardModel (try/catch)
 - Guess bounds on parameters themselves
 - Rates
     

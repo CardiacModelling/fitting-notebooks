@@ -11,22 +11,25 @@ The ion current tutorial goes into much more depth, and includes topics that are
 
 ## General recommendations
 
-A definition list?
-: Who knows
-: It might even work
+**Start with a synthetic data study:**
+Before going to the lab, work out what data you expect to get, simulate this data and add noise, prepare your analysis code, and test that it can recover the parameters you used to generate the data.
 
-It might not work
-: But that is a risk we're willing to take
+**Fit to time-series data:**
+Whenever possible, fit to time-series data, not to "summary statistics" or "biomarkers" such as time constants, IV-, or (in)activation curves.
 
-1. Whenever possible, fit to **time-series data**, not to processed values such as time constants, IV-, or (in)activation curves. [
-   This figure](https://www.biorxiv.org/content/10.1101/609875v1.full#F11) shows why: A score function defined on processed values (method 2 in the paper) can have a complex surface, full of local minima, while similar functions defined on the underlying time-series data (methods 3 and 4 in the paper) are convex and smooth.
-2. Define prior expectations on transition rates as well as parameters.
-   See [this figure](https://www.biorxiv.org/content/10.1101/609875v1.full#F3) and the [supplementary materials](https://www.biorxiv.org/content/10.1101/609875v1.supplementary-material).
-3. Searching in a log-transformed parameter space [can make your problem more convex](https://dx.doi.org/10.1093/bioinformatics/btz020) (which is a good thing).
-4. Use an analytic solver if possible, if using an adaptive ODE solver make sure you [set very fine tolerances](https://mirams.wordpress.com/2018/10/17/ode-errors-and-optimisation/).
-   In Myokit, this can be done with [`Simulation.set_tolerance()`](https://myokit.readthedocs.io/api_simulations/Simulation.html#myokit.Simulation.set_tolerance).
-5. Test the reliability of your fit by running repeated fits from different starting points (e.g. sampled uniformly from your prior).
-6. Before doing any experiments, test the whole set-up with simulated data (and simulated noise).
+**Define expected ranges for the parameters:**
+Define boundaries on the parameters (or on e.g. rates derived from the parameters).
+These speed up your search, but are also used to..
+
+**Verify the reliability of your results:** by running repeated fits.
+Restart your fit several (50?) times from different positions sampled from within the feasible ranges of the parameters.
+If only a handful of fits find the same "best result", it's likely this isn't the true optimum.
+
+**Check your solver tolerances**: if using an adaptive step-size solver, make sure you use strict tolerances.
+
+**Search in a log-transformed parameter space**: We're not quite sure why [but it helps](https://dx.doi.org/10.1093/bioinformatics/btz020).
+
+**Use the CMA-ES optimise**: It performs much better on these problems than anything else we've tested.
 
 ## More information
 
