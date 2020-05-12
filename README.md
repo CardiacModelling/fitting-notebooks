@@ -3,8 +3,8 @@
 This repository contains examples showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
 It includes:
 
-- a [brief example](action-potential-example) of fitting (whole-cell) conductances to an action potential (AP) trace; and
-- a [detailed tutorial](io-currents-tutorial) showing how to fit kinetic parameters of ion current models.
+- a [brief example](action-potential-example/README.md) of fitting (whole-cell) conductances to an action potential (AP) trace; and
+- a [detailed tutorial](ion-currents-tutorial/README.md) showing how to fit kinetic parameters of ion current models.
 
 The AP model example is a great place to start if you've done fitting before, and would like to spend five minutes seeing how it can be done with Myokit and PINTS.
 The ion current tutorial goes into much more depth, and includes topics that are useful in AP model fitting too, such as defining boundaries and parameter transformations.
@@ -40,7 +40,6 @@ If you're not sure, plot the error measure along a line between two nearby point
 - **Probabilistic Inference on Noisy Time Series (PINTS)**.
   Michael Clerx, Martin Robinson, Ben Lambert, Chon Lok Lei, Sanmitra Ghosh, Gary R. Mirams, David J. Gavaghan.
   2019, Journal of Open Research Software.
-  
   [doi:10.5334/jors.252](https://doi.org/10.5334/jors.252)
   | [examples](https://github.com/pints-team/pints/blob/master/examples/README.md) 
   | [documentation](https://pints.readthedocs.io/)
@@ -50,7 +49,6 @@ If you're not sure, plot the error measure along a line between two nearby point
 - **Myokit: A simple interface to cardiac cellular electrophysiology**.
   Michael Clerx, Pieter Collins, Enno de Lange, Paul G.A. Volders.
   2016, Progress in Biophysics and Molecular Biology.
-  
   [10.1016/j.pbiomolbio.2015.12.008](https://doi.org/10.1016/j.pbiomolbio.2015.12.008)
   | [examples](http://myokit.org/examples/)
   | [documentation](https://myokit.readthedocs.io)
