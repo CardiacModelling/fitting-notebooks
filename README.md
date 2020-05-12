@@ -38,24 +38,24 @@ This repository contains examples showing how to fit [Myokit](https://github.com
 
 ### Fitting software
 
-- **Probabilistic Inference on Noisy Time Series (PINTS)**.
-  Michael Clerx, Martin Robinson, Ben Lambert, Chon Lok Lei, Sanmitra Ghosh, Gary R. Mirams, David J. Gavaghan.
-  2019, Journal of Open Research Software.
-  [doi:10.5334/jors.252](https://doi.org/10.5334/jors.252)
-  | [examples](https://github.com/pints-team/pints/blob/master/examples/README.md) 
-  | [documentation](https://pints.readthedocs.io/)
-  | [installation](https://github.com/pints-team/pints/)
-  | [code](https://github.com/pints-team/pints/)
+**Probabilistic Inference on Noisy Time Series (PINTS)**.
+Michael Clerx, Martin Robinson, Ben Lambert, Chon Lok Lei, Sanmitra Ghosh, Gary R. Mirams, David J. Gavaghan.
+2019, Journal of Open Research Software.
+[doi:10.5334/jors.252](https://doi.org/10.5334/jors.252)
+| [examples](https://github.com/pints-team/pints/blob/master/examples/README.md) 
+| [documentation](https://pints.readthedocs.io/)
+| [installation](https://github.com/pints-team/pints/)
+| [code](https://github.com/pints-team/pints/)
     
-- **Myokit: A simple interface to cardiac cellular electrophysiology**.
-  Michael Clerx, Pieter Collins, Enno de Lange, Paul G.A. Volders.
-  2016, Progress in Biophysics and Molecular Biology.
-  [10.1016/j.pbiomolbio.2015.12.008](https://doi.org/10.1016/j.pbiomolbio.2015.12.008)
-  | [examples](http://myokit.org/examples/)
-  | [documentation](https://myokit.readthedocs.io)
-  | [installation](http://myokit.org/install)
-  | [website](http://myokit.org)
-  | [code](https://github.com/MichaelClerx/myokit/)
+**Myokit: A simple interface to cardiac cellular electrophysiology**.
+Michael Clerx, Pieter Collins, Enno de Lange, Paul G.A. Volders.
+2016, Progress in Biophysics and Molecular Biology.
+[10.1016/j.pbiomolbio.2015.12.008](https://doi.org/10.1016/j.pbiomolbio.2015.12.008)
+| [examples](http://myokit.org/examples/)
+| [documentation](https://myokit.readthedocs.io)
+| [installation](http://myokit.org/install)
+| [website](http://myokit.org)
+| [code](https://github.com/MichaelClerx/myokit/)
 
 ### Fitting papers
 
