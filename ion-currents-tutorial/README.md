@@ -1,5 +1,6 @@
-# Estimating parameters of ion current models from whole-cell voltage-clamp data
 ↩ Back to [index](../README.md)
+
+# Estimating parameters of ion current models from whole-cell voltage-clamp data
 
 In this tutorial, we look at the problem of estimating the parameters of an ion current model from whole-cell voltage-clamp data.
 The follow topics are covered:
