@@ -17,6 +17,7 @@ Before going to the lab, work out what data you expect to get, simulate this dat
 **Fit to time-series data:**
 Whenever possible, fit to time-series data, not to "summary statistics" or "biomarkers" such as time constants, IV-, or (in)activation curves.
 
+
 **Define expected ranges for the parameters:**
 Define boundaries on the parameters (or on e.g. rates derived from the parameters).
 These speed up your search, but are also used to..
@@ -26,10 +27,11 @@ Restart your fit several (50?) times from different positions sampled from withi
 If only a handful of fits find the same "best result", it's likely this isn't the true optimum.
 
 **Check your solver tolerances**: if using an adaptive step-size solver, make sure you use strict tolerances.
+If you're not sure, plot the error measure along a line between two nearby points: if it's nice and smooth the optimiser will love it.
 
 **Search in a log-transformed parameter space**: We're not quite sure why [but it helps](https://dx.doi.org/10.1093/bioinformatics/btz020).
 
-**Use the CMA-ES optimise**: It performs much better on these problems than anything else we've tested.
+**Use the CMA-ES optimiser**: It performs much better on these problems than anything else we've tested.
 
 ## More information
 
@@ -38,6 +40,7 @@ If only a handful of fits find the same "best result", it's likely this isn't th
 - **Probabilistic Inference on Noisy Time Series (PINTS)**.
   Michael Clerx, Martin Robinson, Ben Lambert, Chon Lok Lei, Sanmitra Ghosh, Gary R. Mirams, David J. Gavaghan.
   2019, Journal of Open Research Software.
+  
   [doi:10.5334/jors.252](https://doi.org/10.5334/jors.252)
   | [examples](https://github.com/pints-team/pints/blob/master/examples/README.md) 
   | [documentation](https://pints.readthedocs.io/)
@@ -47,6 +50,7 @@ If only a handful of fits find the same "best result", it's likely this isn't th
 - **Myokit: A simple interface to cardiac cellular electrophysiology**.
   Michael Clerx, Pieter Collins, Enno de Lange, Paul G.A. Volders.
   2016, Progress in Biophysics and Molecular Biology.
+  
   [10.1016/j.pbiomolbio.2015.12.008](https://doi.org/10.1016/j.pbiomolbio.2015.12.008)
   | [examples](http://myokit.org/examples/)
   | [documentation](https://myokit.readthedocs.io)
