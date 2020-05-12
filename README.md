@@ -16,7 +16,7 @@ Before going to the lab, work out what data you expect to get, simulate this dat
 
 **Fit to time-series data:**
 Whenever possible, fit to time-series data, not to "summary statistics" or "biomarkers" such as time constants, IV-, or (in)activation curves.
-
+Contacting experimenters, digging in archives, or even repeating experiments is a better use of time than trying to fit to data not suitable for fitting to.
 
 **Define expected ranges for the parameters:**
 Define boundaries on the parameters (or on e.g. rates derived from the parameters).
