@@ -1,3 +1,4 @@
+[↩ back to index](../README.md)
 # Whole-cell conductances
 
 - [Models are written in Myokit's MMT syntax](https://myokit.readthedocs.io/syntax/index.html), usually by [downloading a CellML model](https://models.cellml.org/electrophysiology) and then [importing it](https://myokit.readthedocs.io/api_formats/cellml.html).
