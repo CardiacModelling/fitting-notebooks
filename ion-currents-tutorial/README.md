@@ -21,22 +21,25 @@ In this tutorial we link Myokit to PINTS.
 Noise models are discussed and synthetic data is generated, after which an error measure is defined and minimised.
 Inspecting the results, we show how tight solver tolerances are needed for fitting, and how the finite size of our experimental time series can cause a slight bias in the results.
 
-## More simulation
+## Fitting to different voltage protocols
 
 The next four notebooks discuss different voltage protocols, and the simulation methods appropriate to each one.
 
-- [Combining step protocols with sine waves or ramps](more-simulation-1-steps-and-ramps.ipynb)
-- [Simulating an AP protocol with "data clamp"](more-simulation-2-data-clamp.ipynb)
-- [Analytical solvers for simple step protocols](more-simulation-3-analytic-solvers.ipynb)
-- [Fitting to multiple simple step protocols](more-simulation-4-multiple-protocols.ipynb)
+- [Combining step protocols with sine waves or ramps](more-protocols-1-steps-and-ramps.ipynb)
+- [Simulating an AP protocol with "data clamp"](more-protocols-2-data-clamp.ipynb)
+- [Analytical solvers for simple step protocols](more-protocols-3-analytic-solvers.ipynb)
+- [Fitting to multiple simple step protocols](more-protocols-4-multiple-protocols.ipynb)
 
-## Setting boundaries on parameters
+## [Setting boundaries on model parameters](boundaries.ipynb)
+
 - Robust ForwardModel (try/catch)
 - Guess bounds on parameters themselves
 - Rates
-    
-## Choosing starting points
+
+## [Selecting starting points for an optimisation](starting-points.ipynb)
+
 - Sampling from within boundaries
+- Repeats from different starting points
 
 ## Searching in a transformed space
 - Reasons unclear
@@ -52,10 +55,6 @@ The next four notebooks discuss different voltage protocols, and the simulation 
 - Reversal potential
     - Could add ramps
     - But links to leak!
-
-## Checking reliability of the results
-- Repeats from different starting points
-- MCMC has limited use, if the noise model is gaussian
 
 ## Speeding things up with parallelisation
 - Windows
