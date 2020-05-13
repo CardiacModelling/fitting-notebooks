@@ -33,13 +33,19 @@ IKr = g * act * rec * (V - nernst.EK)
 dot(act) = (inf - act) / tau
     inf = k1 * tau
     tau = 1 / (k1 + k2)
+        in [ms]
     k1 = p1 * exp(p2 * V)
+        in [1/ms]
     k2 = p3 * exp(-p4 * V)
+        in [1/ms]
 dot(rec) = (inf - rec) / tau
     inf = k4 * tau
     tau = 1 / (k3 + k4)
+        in [ms]
     k3 = p5 * exp(p6 * V)
+        in [1/ms]
     k4 = p7 * exp(-p8 * V)
+        in [1/ms]
 p1 = 2.26e-4 [1/ms]
 p2 = 0.0699 [1/mV]
 p3 = 3.45e-5 [1/ms]

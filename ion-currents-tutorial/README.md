@@ -41,13 +41,11 @@ The next four notebooks discuss different voltage protocols, and the simulation 
 - Sampling from within boundaries
 - Repeats from different starting points
 
-## Searching in a transformed space
+## [Searching in a transformed space](transformations.ipynb)
 - Reasons unclear
   
-## Dealing with real data
+## [Dealing with real data](real-data.ipynb)
 - Capacitance filtering
-    - Manual
-    - Using step protocol
 - Subtraction protocol
 - Leak correction
     - We don't know!
@@ -56,6 +54,3 @@ The next four notebooks discuss different voltage protocols, and the simulation 
     - Could add ramps
     - But links to leak!
 
-## Speeding things up with parallelisation
-- Windows
-- GPUs?
