@@ -54,3 +54,7 @@ The next four notebooks discuss different voltage protocols, and the simulation 
     - Could add ramps
     - But links to leak!
 
+## [Running big fitting experiments](big-fitting.ipynb)
+- Parallelisation (and windows)
+- Repeated starts, logs, data: show code from four-ways
+
