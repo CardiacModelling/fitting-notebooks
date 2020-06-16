@@ -32,14 +32,14 @@ The next four notebooks discuss different voltage protocols, and the simulation 
 
 ## [Setting boundaries on model parameters](boundaries.ipynb)
 
-- Robust ForwardModel (try/catch)
-- Guess bounds on parameters themselves
-- Rates
+In this tutorial we show how some parameters can cause numerical issues during simulation, and how we can catch and report these errors.
+We then inspect the model equations and use previous estimates of our parameters (or quantities related to the parameters) to define some very wide boundaries, or "prior estimates".
+Finally, we show how we can use this kind of reasoning to define univariate boundaries (one on each parameter), and multivariate boundaries (which restrict the maximum rate coefficients seen during a simulation).
 
 ## [Selecting starting points for an optimisation](starting-points.ipynb)
 
-- Sampling from within boundaries
-- Repeats from different starting points
+Continuing from the previous tutorial, this tutorial shows how we can sample from within the (univariate and multivariate) boundaries to select starting points for an optisiation.
+At the end of this tutorial we briefly discuss a "repeated-fits" strategy which allows you to test the reliability of results obtained on real data, where the "true" parameters are not known.
 
 ## [Searching in a transformed space](transformations.ipynb)
 - Reasons unclear
