@@ -278,6 +278,45 @@ def boundary_plot_point(axes, x, *args, **kwargs):
     axes[4].plot(x[:, 8], 0 * x[:, 8], *args, **kwargs)
 
 
+class ModelCVODESolver(pints.ForwardModel):
+    """A forward model that runs simulations with CVODE."""
+
+    def __init__(self, protocol):
+
+        # Load a model, and isolate the HH ion current model part
+        model = myokit.load_model('resources/beattie-2017-ikr-hh.mmt')
+        parameters = ['ikr.p' + str(1 + i) for i in range(9)]
+        hh_model = myokit.lib.hh.HHModel.from_component(
+            model.get('ikr'), parameters=parameters)
+
+        # Create a CVODE Simulation
+        self.sim = myokit.Simulation(model, protocol)
+
+        # Set the -80mV steady state as the default state
+        self.sim.set_default_state(hh_model.steady_state(-80))
+
+    def n_parameters(self):
+        return 9
+
+    def simulate(self, parameters, times):
+
+        # Reset to default time and state
+        self.sim.reset()
+
+        # Apply parameters
+        for i, p in enumerate(parameters):
+            self.sim.set_constant('ikr.p' + str(1 + i), p)
+
+        # Run
+        tmax = times[-1] + (times[-1] - times[-2])
+        try:
+            log = self.sim.run(tmax, log_times=times, log=['ikr.IKr'])
+            return log['ikr.IKr']
+        except myokit.SimulationError:
+            print('Error evaluating with parameters: ' + str(parameters))
+            return np.nan * times
+
+
 class ModelHHSolver(pints.ForwardModel):
     """
     A forward model that runs simulations on step protocols, using an
