@@ -44,6 +44,12 @@ At the end of this tutorial we briefly discuss a "repeated-fits" strategy which 
 ## [Searching in a transformed space](transformations.ipynb)
 
 This tutorial shows how you can create wrappers around models and boundaries to run optimisations on a transformed parameter space.
+
+## [Running big fitting experiments](big-fitting.ipynb)
+
+This tutorial focusses on the practical side of fitting.
+It introduces methods to store simulation results to disk, load and analyse them, and shows a way to "reserve" filenames when multiple processes are running at once.
+It ends with a brief note on multiprocessing.
   
 ## [Dealing with real data](real-data.ipynb)
 - Capacitance filtering
@@ -54,8 +60,4 @@ This tutorial shows how you can create wrappers around models and boundaries to 
 - Reversal potential
     - Could add ramps
     - But links to leak!
-
-## [Running big fitting experiments](big-fitting.ipynb)
-- Parallelisation (and windows)
-- Repeated starts, logs, data: show code from four-ways
 
