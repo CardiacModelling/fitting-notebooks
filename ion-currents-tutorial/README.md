@@ -42,7 +42,8 @@ Continuing from the previous tutorial, this tutorial shows how we can sample fro
 At the end of this tutorial we briefly discuss a "repeated-fits" strategy which allows you to test the reliability of results obtained on real data, where the "true" parameters are not known.
 
 ## [Searching in a transformed space](transformations.ipynb)
-- Reasons unclear
+
+This tutorial shows how you can create wrappers around models and boundaries to run optimisations on a transformed parameter space.
   
 ## [Dealing with real data](real-data.ipynb)
 - Capacitance filtering

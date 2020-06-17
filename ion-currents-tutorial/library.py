@@ -260,6 +260,20 @@ def multivariate_boundary_plot(a_log=False):
     return ax1, ax2, ax3, ax4, ax5
 
 
+def boundary_plot_point(axes, x, *args, **kwargs):
+    """
+    Adds one or multiple points to a univariate or multivariate boundary plot.
+    """
+    if len(x.shape) == 1:
+        x = x.reshape((1, len(x)))
+
+    axes[0].plot(x[:, 0], x[:, 1], *args, **kwargs)
+    axes[1].plot(x[:, 2], x[:, 3], *args, **kwargs)
+    axes[2].plot(x[:, 4], x[:, 5], *args, **kwargs)
+    axes[3].plot(x[:, 6], x[:, 7], *args, **kwargs)
+    axes[4].plot(x[:, 8], 0 * x[:, 8], *args, **kwargs)
+
+
 class ModelHHSolver(pints.ForwardModel):
     """
     A forward model that runs simulations on step protocols, using an
