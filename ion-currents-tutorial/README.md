@@ -2,6 +2,10 @@
 # Estimating parameters of ion current models from whole-cell voltage-clamp data
 
 In this tutorial, we look at the problem of estimating the parameters of an ion current model from whole-cell voltage-clamp data.
+
+As we go along, we'll create some classes and utility functions that may be useful in general.
+These are all stored in [library.py](./library.py).
+
 The follow topics are covered:
 
 ## [Introduction](introduction.ipynb)
