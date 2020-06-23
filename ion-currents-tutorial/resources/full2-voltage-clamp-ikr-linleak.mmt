@@ -1,6 +1,6 @@
 [[model]]
 author: Chon Lok Lei
-name: compensated_voltage_clamp_ikr
+name: IKr with voltage clamp
 desc: """
 Myokit version of a simple IKr model under a realistic voltage clamp model
 with standard compensation.
@@ -14,63 +14,117 @@ Units:
 """
 
 # Initial values
-membrane.V = -80.0 [mV]
-voltageclamp.Vclamp = -80.0 [mV]
-voltageclamp.Vp = -80.0 [mV]
-voltageclamp.Iout = 0.0 [mV]
-ikr.open = 0
-ikr.active = 1
+membrane.V = -80 [mV]
+voltage_clamp.Vclamp = -80 [mV]
+voltage_clamp.Vp = -80 [mV]
+voltage_clamp.Iout = 0 [mV]
+ikr.act = 0
+ikr.rec = 1
 
-
+#
+# IKr model
+#
 [ikr]
 use membrane.V
-IKr = p9 * open * active * (V - rev.EK)
-dot(open) = (inf - open) / tau
+IKr = p9 * act * rec * (V - potassium.E_K)
+    in [pA]
+dot(act) = (inf - act) / tau
     inf = k1 * tau
     tau = 1 / (k1 + k2)
+        in [ms]
     k1 = p1 * exp(p2 * V)
+        in [1/ms]
     k2 = p3 * exp(-p4 * V)
-dot(active) = (inf - active) / tau
+        in [1/ms]
+dot(rec) = (inf - rec) / tau
     inf = k4 * tau
     tau = 1 / (k3 + k4)
+        in [ms]
     k3 = p5 * exp(p6 * V)
+        in [1/ms]
     k4 = p7 * exp(-p8 * V)
+        in [1/ms]
 p1 = 2.26e-4 [1/ms]
+    in [1/ms]
 p2 = 0.0699 [1/mV]
+    in [1/mV]
 p3 = 3.45e-5 [1/ms]
+    in [1/ms]
 p4 = 0.05462 [1/mV]
+    in [1/mV]
 p5 = 0.0873 [1/ms]
+    in [1/ms]
 p6 = 8.91e-3 [1/mV]
+    in [1/mV]
 p7 = 5.15e-3 [1/ms]
+    in [1/ms]
 p8 = 0.03158 [1/mV]
+    in [1/mV]
 p9 = 0.1524e3 [pA/mV]  # in nA range
+    in [pA/mV]
 
-
+#
+# External variables
+#
 [engine]
-time = 0 bind time
+time = 0 [ms] 
+    bind time
     in [ms]
-pace = 0 bind pace
+pace = 0
+    bind pace
 
-
-[membrane]
-use voltageclamp.Vp, voltageclamp.rseries, voltageclamp.voffset_eff
-Iion = ikr.IKr + voltageclamp.ILeak
-cm = 100.0 [pF]  # in order of pF; TODO: fit
-dot(V) = (Vp - V + voffset_eff) / tau - Iion / cm
-    tau = cm * rseries in [ms]
-    desc: membane potential
+#
+# Ionic concentrations
+#
+[potassium]
+K_i = 110 [mM]
+    in [mM]
+K_o = 4 [mM]
+    in [mM]
+E_K = phys.RTF * log(K_o / K_i)
     in [mV]
 
-[voltageclamp]
+#
+# Physical constants
+#
+[phys]
+R = 8.314472 [J/mol/K]
+    in [J/mol/K]
+T = 310 [K]         # 36-37oC (BT)
+    in [K]
+F = 9.64853415e4 [C/mol]
+    in [C/mol]
+RTF = R * T / F * 1e3 [mV/V]
+    in [mV]
+
+#
+# Membrane potential
+#
+[membrane]
+use voltage_clamp.Vp, voltage_clamp.R_series, voltage_clamp.voffset_eff
+I_ion = ikr.IKr + voltage_clamp.ILeak
+    in [pA]
+C_m = 10 [pF]
+    in [pF]
+    desc: Membrane capacitance (5-20pF for CHO cell)
+dot(V) = (Vp - V + voffset_eff) / tau - I_ion / C_m
+    tau = C_m * R_series in [ms]
+    desc: Membane potential
+    in [mV]
+
+#
+# Voltage clamp set up
+#
+[voltage_clamp]
 use membrane.V
-rseries = 10.0 * 1e-3 [GR]  # in order of MegaOhms; TODO: fit
-cprs = 4.0 [pF]  # Unknown value for 'parasitic' capacitance at electrode...
-cprs_est = 4.0 * 0.9 [pF]  # eff. parasitic capacitance at electrode; TODO: fit
+R_series = 10e-3 [GOhm]  # in order of MegaOhms; TODO: fit
+cprs = 4 [pF]  # Unknown value for 'parasitic' capacitance at electrode...
+cprs_est = 4 * 0.9 [pF]  # eff. parasitic capacitance at electrode; TODO: fit
 voffset_eff = 5 [mV]  # TODO: fit
-rseries_est = 0.9 * 10.0e-3 [GR]  # TODO: later this one use measured value
+rseries_est = 0.9 * 10.0e-3 [GOhm]  # TODO: later this one use measured value
 cm_est = 0.9 * 100.0 [pF]  # TODO: similar to rseries_est, set value
 
-Vc = engine.pace
+Vc = engine.pace * 1 [mV]
     desc: command voltage
     in [mV]
 
@@ -82,8 +136,7 @@ dot(Vclamp) = dVclampdt
     in [mV]
 
 tau_clamp = 0.8 * 1e-3 in [ms]
-dVpdt = (Vclamp - Vp) / tau_clamp
-dot(Vp) = dVpdt
+dot(Vp) = (Vclamp - Vp) / tau_clamp
     desc: pipette voltage
     in [mV]
 
@@ -97,32 +150,69 @@ gLeak = 2 [pA/mV]
 ELeak = -80 [mV]
 ILeak = gLeak * (V - ELeak) in [pA]
 
-Iin = (Vp - V + voffset_eff) / rseries + cprs * dVpdt - (cm_est + cprs_est) * dVclampdt
+Iin = (Vp - V + voffset_eff) / R_series + cprs * dot(Vp) - (cm_est + cprs_est) * dVclampdt
 
+[[protocol]]
+# This is the simplified staircase protocol
+# V     start   duration period repeats
+-80     0       250     0       0
+-120    next    50      0       0
+-120    next    400     0       0
+-80     next    200     0       0
+40      next    1000    0       0
+-120    next    500     0       0
+-80     next    1000    0       0
+-40     next    500     0       0
+-60     next    500     0       0
+-20     next    500     0       0
+-40     next    500     0       0
+0       next    500     0       0
+-20     next    500     0       0
+20      next    500     0       0
+0       next    500     0       0
+40      next    500     0       0
+20      next    500     0       0
+40      next    500     0       0
+0       next    500     0       0
+20      next    500     0       0
+-20     next    500     0       0
+0       next    500     0       0
+-40     next    500     0       0
+-20     next    500     0       0
+-60     next    500     0       0
+-40     next    500     0       0
+-80     next    1000    0       0
+40      next    500     0       0
+-70     next    10      0       0
+-70     next    100     0       0
+-120    next    390     0       0
+-80     next    500     0       0
 
-#
-# Ionic concentrations (clamp)
-#
-[potassium]
-Ki = 110 [mM]
-Ko = 4 [mM]
+[[script]]
+import myokit
+import matplotlib.pyplot as plt
 
+m = get_model()
+p = get_protocol()
+s = myokit.Simulation(m, p)
 
-#
-# Reversal parameters
-#
-[rev]
-use phys.RTF
-EK = RTF * log(potassium.Ko / potassium.Ki)
-    in [mV]
+d = s.run(15400)
 
+fig = plt.figure(figsize=(9, 6))
+ax = fig.add_subplot(2, 1, 1)
+ax.set_ylabel('Voltage (mV)')
+ax.plot(d.time(), d['voltage_clamp.Vc'], label='$V_{command}$', drawstyle='steps-post')
+ax.plot(d.time(), d['membrane.V'], label='$V_{membrane}$')
+ax.legend()
 
-#
-# Physical constants
-#
-[phys]
-R = 8.314472 [J/mol/K]
-T = 310 [K]  # 36-37oC (BT)
-F = 9.64853415e4 [C/mol]
-RTF = R * T / F * 1e3 in [mV]
+ax = plt.subplot(2, 1, 2)
+ax.set_xlabel('Time (ms)')
+ax.set_ylabel('Current (pA)')
+ax.plot(d.time(), d['ikr.IKr'], label='$I_{Kr}$')
+ax.plot(d.time(), d['voltage_clamp.Iout'], label='$I_{measured}$')
+ax.set_ylim(-2000, 2000)
+
+ax.legend()
+
+plt.show()
 
