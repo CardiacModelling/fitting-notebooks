@@ -121,17 +121,15 @@ R_series = 10e-3 [GOhm]  # in order of MegaOhms; TODO: fit
 cprs = 4 [pF]  # Unknown value for 'parasitic' capacitance at electrode...
 cprs_est = 4 * 0.9 [pF]  # eff. parasitic capacitance at electrode; TODO: fit
 voffset_eff = 5 [mV]  # TODO: fit
-rseries_est = 0.9 * 10.0e-3 [GOhm]  # TODO: later this one use measured value
-cm_est = 0.9 * 100.0 [pF]  # TODO: similar to rseries_est, set value
+rseries_est = 0.9 * 10e-3 [GOhm]  # TODO: later this one use measured value
+cm_est = 0.9 * 100 [pF]  # TODO: similar to rseries_est, set value
 
 Vc = engine.pace * 1 [mV]
     desc: command voltage
     in [mV]
 
 tau_sum = 40e-3 in [ms]  # electronic delay term, ~ 5 - 70 microsecond
-dVclampdt = (Vc + Iout * rseries_est - Vclamp) / tau_sum
-    in [mV/ms]
-dot(Vclamp) = dVclampdt
+dot(Vclamp) = (Vc + Iout * rseries_est - Vclamp) / tau_sum
     desc: clamp voltage
     in [mV]
 
@@ -150,7 +148,7 @@ gLeak = 2 [pA/mV]
 ELeak = -80 [mV]
 ILeak = gLeak * (V - ELeak) in [pA]
 
-Iin = (Vp - V + voffset_eff) / R_series + cprs * dot(Vp) - (cm_est + cprs_est) * dVclampdt
+Iin = (Vp - V + voffset_eff) / R_series + cprs * dot(Vp) - (cm_est + cprs_est) * dot(Vclamp)
 
 [[protocol]]
 # This is the simplified staircase protocol
