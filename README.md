@@ -29,7 +29,7 @@ If only a handful of fits find the same "best result", it's likely this isn't th
 **Check your solver tolerances**: if using an adaptive step-size solver, make sure you use strict tolerances.
 If you're not sure, plot the error measure along a line between two nearby points: if it's nice and smooth the optimiser will love it.
 
-**Search in a log-transformed parameter space**: We're not quite sure why [but it helps](https://dx.doi.org/10.1093/bioinformatics/btz020).
+**Search in a log-transformed parameter space**: This can often make the problem much easier for whatever optimisation algorithm you're using.
 
 **Use the CMA-ES optimiser**: It performs much better on these problems than anything else we've tested.
 
