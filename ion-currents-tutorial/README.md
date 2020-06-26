@@ -54,7 +54,12 @@ This tutorial shows how you can create wrappers around models and boundaries to 
 This tutorial focusses on the practical side of fitting.
 It introduces methods to store simulation results to disk, load and analyse them, and shows a way to "reserve" filenames when multiple processes are running at once.
 It ends with a brief note on multiprocessing.
-  
+
+## [Validating modelling results](validation.ipynb)
+
+- Repeated runs (see previous notebook) validates fitting
+- Training, validation, and test sets validates modelling?
+
 ## Dealing with real data
 
 Blah blah blah
@@ -73,12 +78,29 @@ These are sequential, not independent notebooks
   - Pipette capacitance
   - Membrane capacitance
 
+Sources:
+- [x] Thermal, shot, mains, etc.
+- [x] Stray capacitance
+- [ ] Membrane capacitance
+- [ ] Series resistance
+- [ ] Leak
+- [ ] Endogeneous currents
+- [ ] Gating currents? (~100x smaller than ionic currents)
 
-- Subtraction protocol
-- Leak correction
-    - We don't know!
-    - But could add ramps
-- Reversal potential
-    - Could add ramps
-    - But links to leak!
+Things to be uncertain about
+- [ ] Concentrations
+- [ ] Reversal potential (Nernst/GHK graph?)
+- [ ] Temperature
+
+Methods
+- [x] Low-pass filter
+- [x] Modelling noise
+- [x] Stray cap correction
+- [ ] Cm correction
+- [ ] Artefact filtering
+- [ ] Rs correction
+- [ ] Subtraction protocol
+- [ ] Leak correction
+- [ ] Leak ramp
+- [ ] Reversal potential ramp
 

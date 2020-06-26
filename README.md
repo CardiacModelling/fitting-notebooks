@@ -3,10 +3,10 @@
 This repository contains examples showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
 It includes:
 
-- a [brief example](action-potential-example/whole-cell-fitting.ipynb) of fitting (whole-cell) conductances to an action potential (AP) trace; and
-- a [detailed tutorial](ion-currents-tutorial/README.md) showing how to fit kinetic parameters of ion current models.
+- a [detailed tutorial](ion-currents-tutorial/README.md) showing how to fit kinetic parameters of ion current models; and
+- a [set of recipes](action-potential-tutorial/README.md) for fitting maximum conductances and permeabilities in a model of the cardiac action potential (AP).
 
-The AP model example is a great place to start if you've done fitting before, and would like to spend five minutes seeing how it can be done with Myokit and PINTS.
+The AP examples are a great place to start if you've done fitting before, and would like to spend five minutes seeing how it can be done with Myokit and PINTS.
 The ion current tutorial goes into much more depth, and includes topics that are useful in AP model fitting too, such as defining boundaries and parameter transformations.
 
 ## General recommendations
