@@ -1,4 +1,4 @@
-# Fitting voltage-sensitive ion channel models with Myokit & PINTS
+# Fitting ion channel models with Myokit & PINTS
 
 This repository contains examples showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
 
