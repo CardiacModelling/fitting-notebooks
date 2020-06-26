@@ -91,6 +91,7 @@ Things to be uncertain about
 - [ ] Concentrations
 - [ ] Reversal potential (Nernst/GHK graph?)
 - [ ] Temperature
+- [ ] Model discrepancy
 
 Methods
 - [x] Low-pass filter
