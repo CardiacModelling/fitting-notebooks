@@ -1,13 +1,10 @@
-# Fitting electrophysiology models with Myokit & PINTS
+# Fitting voltage-sensitive ion channel models with Myokit & PINTS
 
 This repository contains examples showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
-It includes:
 
-- a [detailed tutorial](ion-currents-tutorial/README.md) showing how to fit kinetic parameters of ion current models; and
-- a [set of recipes](action-potential-tutorial/README.md) for fitting maximum conductances and permeabilities in a model of the cardiac action potential (AP).
+A part on fitting AP models is planned, but for now the repository contains:
 
-The AP examples are a great place to start if you've done fitting before, and would like to spend five minutes seeing how it can be done with Myokit and PINTS.
-The ion current tutorial goes into much more depth, and includes topics that are useful in AP model fitting too, such as defining boundaries and parameter transformations.
+- a [detailed tutorial](ion-currents-tutorial/README.md) showing how to fit kinetic parameters of ion current models.
 
 ## General recommendations
 
@@ -87,4 +84,17 @@ If you're not sure, plot the error measure along a line between two nearby point
   2018, The Journal of Physiology.
   [doi:10.1113/JP275733](https://doi.org/10.1113/JP275733)
   | [code](https://github.com/mirams/sine-wave)
+
+### Advanced topics in fitting
+
+- **Accounting for variability in ion current recordings using a mathematical model of artefacts in voltage-clamp experiments**
+  Chon Lok Lei, Michael Clerx, Dominic G. Whittaker, David J. Gavaghan, Teun P. de Boer, Gary R. Mirams
+  [doi:10.1098/rsta.2019.0348](https://doi.org/10.1098/rsta.2019.0348)
+  | [code](https://github.com/CardiacModelling/VoltageClampModel)
+
+- **Considering discrepancy when calibrating a mechanistic electrophysiology model**
+  Chon Lok Lei, Sanmitra Ghosh, Dominic G. Whittaker, Yasser Aboelkassem, Kylie A. Beattie, Chris D. Cantwell, Tammo Delhaas, Charles Houston, Gustavo Montes Novaes, Alexander V. Panfilov, Pras Pathmanathan, Marina Riabiz, Rodrigo Weber dos Santos, John Walmsley, Keith Worden, Gary R. Mirams, Richard D. Wilkinson
+  2020, Phil. Trans. R. Soc. A.
+  [doi:10.1098/rsta.2019.0349](http://doi.org/10.1098/rsta.2019.0349)
+  | [code](https://github.com/CardiacModelling/fickleheart-method-tutorials)
 
