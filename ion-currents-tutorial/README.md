@@ -55,8 +55,22 @@ This tutorial focusses on the practical side of fitting.
 It introduces methods to store simulation results to disk, load and analyse them, and shows a way to "reserve" filenames when multiple processes are running at once.
 It ends with a brief note on multiprocessing.
   
-## [Dealing with real data](real-data.ipynb)
-- Capacitance filtering
+## Dealing with real data
+
+Blah blah blah
+
+These are sequential, not independent notebooks
+
+- [Introduction, and additive noise](real-data-1-noise.ipynb)
+- [Capacitance and series resistance](real-data-2-capacitance-and-resistance.ipynb)
+
+- One
+  - Four strategies
+  - Noise model
+  - Stochastic noise
+  - Periodic noise
+
+
 - Subtraction protocol
 - Leak correction
     - We don't know!
