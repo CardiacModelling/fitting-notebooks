@@ -2,9 +2,10 @@
 
 This repository contains examples showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
 
-A part on fitting AP models is planned, but for now the repository contains:
+Its contents are divided into:
 
-- a [detailed tutorial](ion-currents-tutorial/README.md) showing how to fit kinetic parameters of ion current models.
+- a [detailed tutorial](ion-currents-tutorial/README.md) showing how to fit kinetic parameters of ion current models; and
+- a [set of recipes](action-potential-tutorial/README.md) for fitting maximum conductances and permeabilities in a model of the cardiac action potential (AP). NOTE: We're not entirely sure this is a good idea!
 
 ## General recommendations
 
