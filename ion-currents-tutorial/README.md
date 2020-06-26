@@ -69,6 +69,9 @@ These are sequential, not independent notebooks
   - Noise model
   - Stochastic noise
   - Periodic noise
+- Two
+  - Pipette capacitance
+  - Membrane capacitance
 
 
 - Subtraction protocol
