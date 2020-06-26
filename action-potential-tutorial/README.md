@@ -8,11 +8,11 @@ In contrast to the ion channel tutorials, these tutorials take a "recipe" approa
 
 The follow topics are covered:
 
-## [Fitting conductances to an AP trace](basic-fitting-ap)
+## [Fitting conductances to an AP trace](basic-fitting-ap.ipynb)
 
 A simple example of fitting to a sinle AP trace.
 
-## [Fitting conductances to an AP and CaT trace](basic-fitting-ap-cat)
+## [Fitting conductances to an AP and CaT trace](basic-fitting-ap-cat.ipynb)
 
 Expands on the previous example to simultaneously fit to AP and calcium transient (CaT).
 
