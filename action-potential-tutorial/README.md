@@ -10,7 +10,7 @@ The follow topics are covered:
 
 ## [Fitting conductances to an AP trace](basic-fitting-ap.ipynb)
 
-A simple example of fitting to a sinle AP trace.
+A simple example of fitting to a single AP trace.
 
 ## [Fitting conductances to an AP and CaT trace](basic-fitting-ap-cat.ipynb)
 
