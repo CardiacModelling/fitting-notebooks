@@ -46,7 +46,7 @@ If you're not sure, plot the error measure along a line between two nearby point
 - **Myokit: A simple interface to cardiac cellular electrophysiology**.
   Michael Clerx, Pieter Collins, Enno de Lange, Paul G.A. Volders.
   2016, Progress in Biophysics and Molecular Biology.
-  [10.1016/j.pbiomolbio.2015.12.008](https://doi.org/10.1016/j.pbiomolbio.2015.12.008)
+  [doi:10.1016/j.pbiomolbio.2015.12.008](https://doi.org/10.1016/j.pbiomolbio.2015.12.008)
   | [examples](http://myokit.org/examples/)
   | [documentation](https://myokit.readthedocs.io)
   | [installation](http://myokit.org/install)
