@@ -17,7 +17,7 @@ Contacting experimenters, digging in archives, or even repeating experiments is 
 
 **Define expected ranges for the parameters:**
 Define boundaries on the parameters (or on e.g. rates derived from the parameters).
-These speed up your search, but are also used to..
+These can speed up your search, but are also used to prevent numerical problems and solver failures when certain parameters and combinations of parameters get too large or small.
 
 **Verify the reliability of your results:** by running repeated fits.
 Restart your fit several (50?) times from different positions sampled from within the feasible ranges of the parameters.
