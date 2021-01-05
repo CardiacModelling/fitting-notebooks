@@ -48,14 +48,14 @@ class Boundaries(pints.Boundaries):
         self.g_max = 10 * g_min
 
         # Univariate paramater bounds
-        self.lower = np.array([
+        self._lower = np.array([
             self.a_min, self.b_min,
             self.a_min, self.b_min,
             self.a_min, self.b_min,
             self.a_min, self.b_min,
             self.g_min,
         ])
-        self.upper = np.array([
+        self._upper = np.array([
             self.a_max, self.b_max,
             self.a_max, self.b_max,
             self.a_max, self.b_max,
@@ -69,7 +69,7 @@ class Boundaries(pints.Boundaries):
     def check(self, parameters):
 
         # Check parameter boundaries
-        if np.any(parameters <= self.lower) or np.any(parameters >= self.upper):
+        if np.any(parameters <= self._lower) or np.any(parameters >= self._upper):
             return False
 
         # Check rate boundaries
