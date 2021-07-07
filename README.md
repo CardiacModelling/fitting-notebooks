@@ -1,10 +1,10 @@
 # Fitting ion channel models with Myokit & PINTS
 
-This repository contains examples showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
+This repository contains notebooks showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
 
 A part on fitting AP models is planned, but for now the repository contains:
 
-- a [detailed tutorial](ion-currents-tutorial/README.md) showing how to fit kinetic parameters of ion current models.
+- A [set of notebooks](ion-currents/README.md) showing how to fit kinetic parameters of ion current models.
 
 ## General recommendations
 
