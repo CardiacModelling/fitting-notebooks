@@ -6,14 +6,16 @@ In these notebooks, we look at the problem of estimating the parameters of an io
 As we go along, we'll create some classes and utility functions that may be useful in general.
 These are all stored in [library.py](./library.py).
 
-The follow topics are covered:
+The covered topics are listed below.
+Each notebook can be viewed either using github's built-in viewer, or using [Jupyter nbviewer](https://nbviewer.jupyter.org/), which usually provides nicer rendering.
+Links to nbviewer are indicated as *.
 
-## [Introduction](introduction.ipynb) - [nbviewer](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/introduction.ipynb)
+## [Introduction](introduction.ipynb) [*](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/introduction.ipynb)
 
 This notebook provides some background on the model we'll use in all examples.
 It also introduces a first voltage-protocol (a simplified variant of the "staircase protocol").
 
-## [Basic simulations](basic-simulations.ipynb) - [nbviewer](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/basic-simulations.ipynb)
+## [Basic simulations](basic-simulations.ipynb) [*](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/basic-simulations.ipynb)
 
 This notebook shows how Myokit can be used to simulate patch-clamp experiments.
 It shows you how to create a simulation from a model and protocol stored on disk, and discusses how to change model parameters.
