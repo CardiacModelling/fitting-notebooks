@@ -55,12 +55,12 @@ This notebook focusses on the practical side of fitting.
 It introduces methods to store simulation results to disk, load and analyse them, and shows a way to "reserve" filenames when multiple processes are running at once.
 It ends with a brief note on multiprocessing.
 
-## [Validating modelling results](validation.ipynb) - [nbviewer](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/validation.ipynb)
+## (TODO) Validating modelling results
 
 - Repeated runs (see previous notebook) validates fitting
 - Training, validation, and test sets validates modelling?
 
-## Dealing with real data
+## (TODO) Dealing with real data
 
 Blah blah blah
 
