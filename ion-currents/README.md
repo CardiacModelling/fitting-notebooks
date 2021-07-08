@@ -49,18 +49,17 @@ At the end of this notebook we briefly discuss a "repeated-fits" strategy which 
 
 ## [Searching in a transformed space](transformations.ipynb) - [nb](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/transformations.ipynb)
 
-This notebook shows how you can create wrappers around models and boundaries to run optimisations on a transformed parameter space.
+This notebook shows how you can use PINTS Transformation class to run optimisations in a transformed parameter space.
+
+## (TODO) [Checking your fitting results](reliability.ipynb) - [nb](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/reliability.ipynb)
+
+In this notebook we discuss using synthetic data to test your optimisation set-up, using repeated fits to check the reliability of your real-data fits, and using an independent data set to test the usefulness of your fitted model.
 
 ## [Running big fitting experiments](big-fitting.ipynb) - [nb](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/big-fitting.ipynb)
 
 This notebook focusses on the practical side of fitting.
 It introduces methods to store simulation results to disk, load and analyse them, and shows a way to "reserve" filenames when multiple processes are running at once.
 It ends with a brief note on multiprocessing.
-
-## (TODO) Validating modelling results
-
-- Repeated runs (see previous notebook) validates fitting
-- Training, validation, and test sets validates modelling?
 
 ## (TODO) Dealing with real data
 

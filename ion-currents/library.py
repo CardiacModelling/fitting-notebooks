@@ -49,14 +49,14 @@ class Boundaries(pints.Boundaries):
         self.g_max = 10 * g_min
 
         # Univariate paramater bounds
-        self.lower = np.array([
+        self._lower = np.array([
             self.a_min, self.b_min,
             self.a_min, self.b_min,
             self.a_min, self.b_min,
             self.a_min, self.b_min,
             self.g_min,
         ])
-        self.upper = np.array([
+        self._upper = np.array([
             self.a_max, self.b_max,
             self.a_max, self.b_max,
             self.a_max, self.b_max,
@@ -70,8 +70,8 @@ class Boundaries(pints.Boundaries):
     def check(self, parameters):
 
         # Check parameter boundaries
-        if (np.any(parameters <= self.lower)
-                or np.any(parameters >= self.upper)):
+        if (np.any(parameters <= self._lower)
+                or np.any(parameters >= self._upper)):
             return False
 
         # Check rate boundaries
@@ -355,88 +355,22 @@ class ModelHHSolver(pints.ForwardModel):
         return log['ikr.IKr']
 
 
-class LogTransform(object):
+def create_log_transformation(self):
     """
-    Performs forward and backward transformations on the alpha-parameters used
-    in the Beattie et al. model.
+    Returns a :class:`pints.Transformation` object that takes 9 parameters and
+    log-transforms the 1st, 3d, 5th, and 7th parameter.
     """
-
-    def to_search(self, x):
-        """Transforms from model to search space."""
-        q = np.copy(x)
-        q[0] = np.log(x[0])
-        q[2] = np.log(x[2])
-        q[4] = np.log(x[4])
-        q[6] = np.log(x[6])
-        return q
-
-    def to_model(self, q):
-        """Transforms from search to model space."""
-        x = np.copy(q)
-        x[0] = np.exp(q[0])
-        x[2] = np.exp(q[2])
-        x[4] = np.exp(q[4])
-        x[6] = np.exp(q[6])
-        return x
-
-
-class TransformedForwardModel(pints.ForwardModel):
-    """
-    Wraps around a ``pints.ForwardModel`` and applies parameter
-    transformations.
-    """
-
-    def __init__(self, model, transform):
-        self._model = model
-        self._transform = transform
-
-    def n_parameters(self):
-        return self._model.n_parameters()
-
-    def simulate(self, search_parameters, times):
-        model_parameters = self._transform.to_model(search_parameters)
-        return self._model.simulate(model_parameters, times)
-
-
-class TransformedErrorMeasure(pints.ErrorMeasure):
-    """
-    Wraps around a ``pints.ErrorMeasure`` and applies parameter
-    transformations.
-    """
-
-    def __init__(self, error, transform):
-        self._error = error
-        self._transform = transform
-
-    def n_parameters(self):
-        return self._error.n_parameters()
-
-    def __call__(self, search_parameters):
-        return self._error(self._transform.to_model(search_parameters))
-
-
-class TransformedBoundaries(pints.Boundaries):
-    """
-    Wraps around a ``pints.Boundaries`` object and applies parameter
-    transformations.
-    """
-    def __init__(self, boundaries, transform):
-        self._boundaries = boundaries
-        self._transform = transform
-
-    def check(self, search_parameters):
-        model_parameters = self._transform.to_model(search_parameters)
-        return self._boundaries.check(model_parameters)
-
-    def n_parameters(self):
-        return self._boundaries.n_parameters()
-
-    def sample(self, n):
-        model_parameters = self._boundaries.sample(n)
-        search_parameters = np.zeros(model_parameters.shape)
-        for i, p in enumerate(model_parameters):
-            search_parameters[i] = self._transform.to_search(p)
-        return search_parameters
+    return pints.ComposedTransformation(
+        pints.LogTransformation(n_parameters=1),       # p1 (a-type)
+        pints.IdentityTransformation(n_parameters=1),  # p2 (b-type)
+        pints.LogTransformation(n_parameters=1),       # p3 (a-type)
+        pints.IdentityTransformation(n_parameters=1),  # p4 (b-type)
+        pints.LogTransformation(n_parameters=1),       # p5 (a-type)
+        pints.IdentityTransformation(n_parameters=1),  # p6 (b-typ)
+        pints.LogTransformation(n_parameters=1),       # p7 (a-type)
+        pints.IdentityTransformation(n_parameters=1),  # p8 (b-type)
+        pints.IdentityTransformation(n_parameters=1),  # p9 (maximum conductance)
+    )
 
 
 class reserve_base_name(object):
@@ -738,7 +672,7 @@ def fit(name, error, boundaries, transformation=None, repeats=1, cap=None):
         A boundaries object, used to constrain the search and to sample initial
         starting points.
     transformation
-        An optional transformation, to wrap around the error and boundaries.
+        An optional :class:`pints.Transformation` to pass to the optimiser.
     repeats
         The maximum number of optimisations to run (default is 1).
     cap
@@ -753,11 +687,6 @@ def fit(name, error, boundaries, transformation=None, repeats=1, cap=None):
 
     # Get the number of parameters
     n_parameters = error.n_parameters()
-
-    # Apply transformation, if given
-    if transformation is not None:
-        error = TransformedErrorMeasure(error, transformation)
-        boundaries = TransformedBoundaries(boundaries, transformation)
 
     # Check the number of repeats
     repeats = int(repeats)
@@ -808,7 +737,12 @@ def fit(name, error, boundaries, transformation=None, repeats=1, cap=None):
 
             # Create optimiser
             opt = pints.OptimisationController(
-                error, q0, boundaries=boundaries, method=pints.CMAES)
+                error,
+                q0,
+                boundaries=boundaries,
+                transform=transformation,
+                method=pints.CMAES,
+            )
             opt.set_log_to_file(log_path, csv=True)
             opt.set_max_iterations(3 if debug else None)
             opt.set_parallel(True)
@@ -816,13 +750,7 @@ def fit(name, error, boundaries, transformation=None, repeats=1, cap=None):
             # Run optimisation
             print('Running')
             with np.errstate(all='ignore'): # Ignore numpy warnings
-                q, s = opt.run()            # Search space
-
-            # Transform back to model space
-            if transformation is None:
-                p = q
-            else:
-                p = transformation.to_model(q)
+                q, s = opt.run()
 
             # Store results for this run
             time = opt.time()
