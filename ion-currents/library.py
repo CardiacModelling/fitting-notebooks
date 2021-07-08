@@ -71,7 +71,7 @@ class Boundaries(pints.Boundaries):
 
         # Check parameter boundaries
         if (np.any(parameters <= self.lower)
-                or np.any(parameters >= self.upper):
+                or np.any(parameters >= self.upper)):
             return False
 
         # Check rate boundaries
