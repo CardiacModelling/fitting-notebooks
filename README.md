@@ -1,10 +1,10 @@
 # Fitting ion channel models with Myokit & PINTS
 
-This repository contains examples showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
+This repository contains notebooks showing how to fit Myokit models to data using the PINTS optimisation & inference framework.
 
 A part on fitting AP models is planned, but for now the repository contains:
 
-- a [detailed tutorial](ion-currents-tutorial/README.md) showing how to fit kinetic parameters of ion current models.
+- A [set of notebooks](ion-currents/README.md) showing how to fit kinetic parameters of ion current models.
 
 ## General recommendations
 
@@ -32,7 +32,7 @@ If you're not sure, plot the error measure along a line between two nearby point
 
 ## More information
 
-### Fitting software
+### Software
 
 - **Probabilistic Inference on Noisy Time Series (PINTS)**.
   Michael Clerx, Martin Robinson, Ben Lambert, Chon Lok Lei, Sanmitra Ghosh, Gary R. Mirams, David J. Gavaghan.
@@ -53,7 +53,7 @@ If you're not sure, plot the error measure along a line between two nearby point
   | [website](http://myokit.org)
   | [code](https://github.com/MichaelClerx/myokit/)
 
-### Fitting papers
+### Papers
 
 - **Calibration of ionic and cellular cardiac electrophysiology models**.
   Dominic G. Whittaker, Michael Clerx, Chon Lok Lei, David J. Christini, Gary R. Mirams.
@@ -85,7 +85,7 @@ If you're not sure, plot the error measure along a line between two nearby point
   [doi:10.1113/JP275733](https://doi.org/10.1113/JP275733)
   | [code](https://github.com/mirams/sine-wave)
 
-### Advanced topics in fitting
+### Advanced topics
 
 - **Accounting for variability in ion current recordings using a mathematical model of artefacts in voltage-clamp experiments**
   Chon Lok Lei, Michael Clerx, Dominic G. Whittaker, David J. Gavaghan, Teun P. de Boer, Gary R. Mirams

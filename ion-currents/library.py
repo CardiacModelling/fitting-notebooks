@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 #
 #
-# Code library for use in the ion currents fitting tutorial.
+# Code library for use in the ion currents fitting notebooks.
 #
 #
 import fnmatch
@@ -18,7 +18,8 @@ import myokit.lib.hh
 
 class Boundaries(pints.Boundaries):
     """
-    A boundaries class that implements the maximum-rate boundaries used in Beattie et al.
+    A boundaries class that implements the maximum-rate boundaries used in
+    Beattie et al.
 
     Parameters
     ----------
@@ -48,14 +49,14 @@ class Boundaries(pints.Boundaries):
         self.g_max = 10 * g_min
 
         # Univariate paramater bounds
-        self._lower = np.array([
+        self.lower = np.array([
             self.a_min, self.b_min,
             self.a_min, self.b_min,
             self.a_min, self.b_min,
             self.a_min, self.b_min,
             self.g_min,
         ])
-        self._upper = np.array([
+        self.upper = np.array([
             self.a_max, self.b_max,
             self.a_max, self.b_max,
             self.a_max, self.b_max,
@@ -69,7 +70,8 @@ class Boundaries(pints.Boundaries):
     def check(self, parameters):
 
         # Check parameter boundaries
-        if np.any(parameters <= self._lower) or np.any(parameters >= self._upper):
+        if (np.any(parameters <= self.lower)
+                or np.any(parameters >= self.upper)):
             return False
 
         # Check rate boundaries
@@ -92,7 +94,8 @@ class Boundaries(pints.Boundaries):
     def _sample_partial(self, v):
         """Samples a pair of kinetic parameters"""
         for i in range(100):
-            a = np.exp(np.random.uniform(np.log(self.a_min), np.log(self.a_max)))
+            a = np.exp(np.random.uniform(
+                np.log(self.a_min), np.log(self.a_max)))
             b = np.random.uniform(self.b_min, self.b_max)
             km = a * np.exp(b * v)
             if km > self.km_min and km < self.km_max:
@@ -112,7 +115,7 @@ class Boundaries(pints.Boundaries):
 
 def univariate_boundary_plot(a_log=False, b_log=False):
     """
-    Plots the univariate boundaries, as defined in the boundaries tutorial.
+    Plots the univariate boundaries, as defined in the boundaries notebook.
 
     The limits plotted are obtained from the :class:`Boundaries` class.
 
@@ -178,7 +181,7 @@ def univariate_boundary_plot(a_log=False, b_log=False):
 
 def multivariate_boundary_plot(a_log=False):
     """
-    Plots the multivariate boundaries, as defined in the boundaries tutorial.
+    Plots the multivariate boundaries, as defined in the boundaries notebook.
 
     Parameters
     ----------
@@ -196,13 +199,15 @@ def multivariate_boundary_plot(a_log=False):
     else:
         px = np.linspace(b.a_min, b.a_max, 200)
 
-    # Calculate the lower and upper boundaries on p2 and p4 (which are the same as those on p6 and p8)
+    # Calculate the lower and upper boundaries on p2 and p4 (which are the same
+    # as those on p6 and p8)
     p2_min = np.log(b.km_min / px) / 60
     p2_max = np.log(b.km_max / px) / 60
     p4_min = np.log(b.km_min / px) / 120
     p4_max = np.log(b.km_max / px) / 120
 
-    # But p2,p6 and p4,p8 are also bounded by the parameter boundaries, so add that in too:
+    # But p2,p6 and p4,p8 are also bounded by the parameter boundaries, so add
+    # that in too:
     p2_min = np.maximum(p2_min, b.b_min)
     p4_min = np.maximum(p4_min, b.b_min)
 
