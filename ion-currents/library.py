@@ -113,6 +113,24 @@ class Boundaries(pints.Boundaries):
         return points
 
 
+def transformation():
+    """
+    Creates and returns a :class:`pints.Transformation` suitable for use
+    with the model by Beattie et al.
+    """
+    return pints.ComposedTransformation(
+        pints.LogTransformation(n_parameters=1),       # p1 (a-type)
+        pints.IdentityTransformation(n_parameters=1),  # p2 (b-type)
+        pints.LogTransformation(n_parameters=1),       # p3 (a-type)
+        pints.IdentityTransformation(n_parameters=1),  # p4 (b-type)
+        pints.LogTransformation(n_parameters=1),       # p5 (a-type)
+        pints.IdentityTransformation(n_parameters=1),  # p6 (b-typ)
+        pints.LogTransformation(n_parameters=1),       # p7 (a-type)
+        pints.IdentityTransformation(n_parameters=1),  # p8 (b-type)
+        pints.IdentityTransformation(n_parameters=1),  # p9 (maximum conductance)
+    )
+
+
 def univariate_boundary_plot(a_log=False, b_log=False):
     """
     Plots the univariate boundaries, as defined in the boundaries notebook.
