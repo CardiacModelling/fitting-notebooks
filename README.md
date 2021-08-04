@@ -6,7 +6,13 @@ A part on fitting AP models is planned, but for now the repository contains:
 
 - A [set of notebooks](ion-currents/README.md) showing how to fit kinetic parameters of ion current models.
 
-## General recommendations
+## Requirements
+
+The notebooks can be viewed online without any installation, either with GitHub's built-in viewer or with the nicer NBViewer (click on the word "nb" following the notebook's title).
+
+To re-run the notebooks locally, use Python 3.5 or newer, and `pip install -r requirements.txt`.
+
+## General recommendations for fitting
 
 **Start with a synthetic data study:**
 Before going to the lab, work out what data you expect to get, simulate this data and add noise, prepare your analysis code, and test that it can recover the parameters you used to generate the data.
