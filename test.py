@@ -115,7 +115,7 @@ def natural_sort_key(s):
 
     Example::
 
-        names.sort(key=myokit.tools.natural_sort_key)
+        names.sort(key=natural_sort_key)
 
     """
     # Code adapted from: http://stackoverflow.com/questions/4836710/
