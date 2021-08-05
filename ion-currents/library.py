@@ -758,7 +758,7 @@ def fit(name, error, boundaries, transformation=None, repeats=1, cap=None):
                 error,
                 q0,
                 boundaries=boundaries,
-                transform=transformation,
+                transformation=transformation,
                 method=pints.CMAES,
             )
             opt.set_log_to_file(log_path, csv=True)
