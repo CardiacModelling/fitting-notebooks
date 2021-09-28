@@ -10,7 +10,11 @@ The covered topics are listed below.
 Each notebook can be viewed either using github's built-in viewer, or using [Jupyter nbviewer](https://nbviewer.jupyter.org/), which usually provides nicer rendering.
 Links to nbviewer are indicated as "nb".
 
-## [Introduction](introduction.ipynb) - [nb](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/introduction.ipynb)
+## [Introduction](introduction.ipynb) - [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/introduction.ipynb)
+
+[![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/introduction.ipynb)
+
+
 
 This notebook provides some background on the model we'll use in all examples.
 It also introduces a first voltage-protocol (a simplified variant of the "staircase protocol").
