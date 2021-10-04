@@ -50,13 +50,13 @@ At the end of this notebook we briefly discuss a "repeated-fits" strategy which 
 
 This notebook shows how you can use PINTS Transformation class to run optimisations in a transformed parameter space.
 
-## (TODO) Checking your fitting results [![github](../img/github.svg)](reliability.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/reliability.ipynb)
-
-In this notebook we discuss using synthetic data to test your optimisation set-up, using repeated fits to check the reliability of your real-data fits, and using an independent data set to test the usefulness of your fitted model.
-
 ## Running big fitting experiments [![github](../img/github.svg)](big-fitting.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/big-fitting.ipynb)
 
 This notebook focusses on the practical side of fitting.
 It introduces methods to store simulation results to disk, load and analyse them, and shows a way to "reserve" filenames when multiple processes are running at once.
 It ends with a brief note on multiprocessing.
+
+## Checking your fitting results [![github](../img/github.svg)](reliability.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/blob/main/ion-currents/reliability.ipynb)
+
+In this notebook we discuss using synthetic data to test your optimisation set-up, using repeated fits to check the reliability of your real-data fits, and using an independent data set to test the usefulness of your fitted model.
 

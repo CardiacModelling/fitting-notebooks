@@ -557,6 +557,7 @@ def load(template_path, n_parameters=9):
 
     # Create pattern to find result files
     pattern = os.path.join(dirname, basename + '-*.txt')
+    print(basename, pattern)
 
     # Create empty lists
     parameters = []
