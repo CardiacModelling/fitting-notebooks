@@ -4,7 +4,6 @@
 # Code library for use in the ion currents fitting notebooks.
 #
 #
-import fnmatch
 import glob
 import os
 
@@ -744,10 +743,10 @@ def fit(name, error, boundaries, transformation=None, repeats=1, cap=None):
             # Choose starting point
             # Allow resampling, in case error calculation fails
             print('Choosing starting point')
-            q0 = s0 = float('inf')
+            p0 = s0 = float('inf')
             while not np.isfinite(s0):
-                q0 = boundaries.sample(1)[0]  # Search space
-                s0 = error(q0)                # Initial score
+                p0 = boundaries.sample(1)[0]
+                s0 = error(q0)
 
             # Create a file path to store the optimisation log in
             log_path = os.path.splitext(path)
@@ -756,7 +755,7 @@ def fit(name, error, boundaries, transformation=None, repeats=1, cap=None):
             # Create optimiser
             opt = pints.OptimisationController(
                 error,
-                q0,
+                p0,
                 boundaries=boundaries,
                 transformation=transformation,
                 method=pints.CMAES,
@@ -768,7 +767,7 @@ def fit(name, error, boundaries, transformation=None, repeats=1, cap=None):
             # Run optimisation
             print('Running')
             with np.errstate(all='ignore'): # Ignore numpy warnings
-                q, s = opt.run()
+                p, s = opt.run()
 
             # Store results for this run
             time = opt.time()
