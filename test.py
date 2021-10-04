@@ -68,8 +68,9 @@ def test_notebooks():
 
         print('-' * 79)
         print('Test failed (' + str(len(failed)) + ') error(s).')
-    else:
-        print('Test passed.')
+        return False
+    print('Test passed.')
+    return True
 
 
 def test_notebook(root, path):
@@ -132,4 +133,5 @@ if __name__ == '__main__':
     print()
     print('  Press Ctrl+C to abort.')
     print()
-    test_notebooks()
+    if not test_notebooks():
+        sys.exit(1)
