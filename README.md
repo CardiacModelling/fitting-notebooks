@@ -8,7 +8,7 @@ A part on fitting AP models is planned, but for now the repository contains:
 
 ## Requirements
 
-The notebooks can be viewed online without any installation, either with GitHub's built-in viewer or with the nicer NBViewer (click on the word "nb" following the notebook's title).
+The notebooks can be viewed online without any installation, either with GitHub's built-in viewer or with the nicer NBViewer.
 
 To re-run the notebooks locally, use Python 3.5 or newer, and `pip install -r requirements.txt`.
 
