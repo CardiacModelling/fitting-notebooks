@@ -26,7 +26,7 @@ In this notebook we link Myokit to PINTS.
 Noise models are discussed and synthetic data is generated, after which an error measure is defined and minimised.
 Inspecting the results, we show how tight solver tolerances are needed for fitting, and how the finite size of our experimental time series can cause a slight bias in the results.
 
-## Fitting to different voltage protocols
+## Simulating different voltage protocols
 
 The next four notebooks discuss different voltage protocols, and the simulation methods appropriate to each one.
 
