@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 #
-# Tests all notebooks
+# Tests all notebooks.
 #
 import os
 import re
