@@ -747,7 +747,7 @@ def fit(name, error, boundaries, transformation=None, repeats=1, cap=None):
             p0 = s0 = float('inf')
             while not np.isfinite(s0):
                 p0 = boundaries.sample(1)[0]
-                s0 = error(q0)
+                s0 = error(p0)
 
             # Create a file path to store the optimisation log in
             log_path = os.path.splitext(path)
