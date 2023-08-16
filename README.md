@@ -14,27 +14,30 @@ To re-run the notebooks locally, use Python 3.5 or newer, and `pip install -r re
 
 ## General recommendations for fitting
 
-**Start with a synthetic data study:**
+**Start with a synthetic data study.**
 Before going to the lab, work out what data you expect to get, simulate this data and add noise, prepare your analysis code, and test that it can recover the parameters you used to generate the data.
 
-**Fit to time-series data:**
-Whenever possible, fit to time-series data, not to "summary statistics" or "biomarkers" such as time constants, IV-, or (in)activation curves.
-Contacting experimenters, digging in archives, or even repeating experiments is a better use of time than trying to fit to data not suitable for fitting to.
+**Fit to time-series data.**
+Whenever possible, avoid fitting to "summary statistics" or "biomarkers" such as time constants, IV-, or (in)activation curves.
+Contacting experimenters, digging in archives, or even repeating experiments is a better use of time than trying to fit to unsuitable data.
 
-**Define expected ranges for the parameters:**
-Define boundaries on the parameters (or on e.g. rates derived from the parameters).
-These can speed up your search, but are also used to prevent numerical problems and solver failures when certain parameters and functions of parameters get too large or small.
+**Define expected ranges for the parameters.**
+Define boundaries on the parameters or on derived quantities like reaction rates.
+These can speed up your search and prevent numerical problems and solver failures.
 
-**Verify the reliability of your results:** by running repeated fits.
-Restart your fit several (50?) times from different positions sampled from within the feasible ranges of the parameters.
-If only a handful of fits find the same "best result", it's likely this isn't the true optimum.
+**Verify the reliability of your results by running repeated fits.**
+Restart your fit several (50?) times from different positions sampled from within the parameters' feasible ranges.
+If only a handful of fits find the same "best result", it is likely not the global optimum.
 
-**Check your solver tolerances**: if using an adaptive step-size solver, make sure you use strict tolerances.
-If you're not sure, plot the error measure along a line between two nearby points: if it's nice and smooth the optimiser will love it.
+**Check your solver tolerances.**
+When using an adaptive step-size solver, use strict tolerances.
+To see why, plot your error measure along a line between two nearby points: if it looks "noisy" you need to tighten the tolerance.
 
-**Search in a log-transformed parameter space**: This can often make the problem much easier for whatever optimisation algorithm you're using.
+**Search in a log-transformed parameter space.**
+This can often make the problem much easier for whatever optimisation algorithm you're using.
 
-**Use the CMA-ES optimiser**: It performs much better on these problems than anything else we've tested.
+**Use the CMA-ES optimiser**.
+It performs much better on these problems than anything else that we've tried.
 
 ## More information
 
