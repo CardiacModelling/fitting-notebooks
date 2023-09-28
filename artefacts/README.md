@@ -2,7 +2,7 @@
 # Modelling patch-clamp experiments
 
 When analysing data from whole-cell patch-clamp experiments, it can be useful to have a model of both the biological system of interest _and_ the experimental set up.
-In these notebooks we retrace the steps taken in the supplement to [Lei et al., 2020](https://doi.org/10.1098/rsta.2019.0348), and construct (1) a model of a patch-clamp experiment with various experimental artefacts, and (2) a model of the various corrections applied by patch-clamp amplifiers to mitigate these effects.
+In these notebooks we retrace the steps taken in the supplement to [Lei et al., 2020](https://doi.org/10.1098/rsta.2019.0348), and construct (1) a model of a patch-clamp experiment with various experimental artefacts, and (2) a model of the corrections applied by patch-clamp amplifiers to mitigate these effects.
 Both models and the exposition here draw heavily on a book chapter by [Sigworth (1995a)](https://doi.org/10.1007/978-1-4419-1229-9_4), as well as a recent paper from the same group ([Weerakoon et al., 2009](https://doi.org/10.1109/TBCAS.2008.2005419)).
 
 I have tried to keep things as to-the-point as possible, but a lot of extra detail is provided in the appendices.
