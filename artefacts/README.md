@@ -14,16 +14,28 @@ The first notebook] describes the uncompensated patch-clamp set up, and shows ho
 It first introduces a basic op-amp based current measuring device, then adds in the effects of stray and parasitic  (pipette) capacitance, before briefly discussing the finite speed of the amplifier.
 It then adds series resistance and membrane capacitance, a voltage offset, and leak current, culminating in a 3-state ODE model of whole-cell voltage clamp.
 
-## Modelling patch-clamp experiments: compensation [![github](../img/github.svg)](artefacts-2-compensation.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/tree/artefacts/artefacts/artefacts-2-compensation.ipynb)
+## Modelling electronic compensation [![github](../img/github.svg)](artefacts-2-compensation.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/tree/artefacts/artefacts/artefacts-2-compensation.ipynb)
 
-This notebook adds (heavily simplified) equations that describe the corrections commonly applied _on-line_ during a patch-clamp experiment.
+In this notebook we update the model to include simplified equations to describe the compensation electronic commonly used during a patch-clamp experiment.
 
+## Simplifications
 
-Possible to-do:
+In this notebook we look at simplifications of the artefact model.
+
+## Parameter values
+
+In this notebook we discuss parameter values, and where we might find them.
+
+## Possible to-do:
+
+Other contamination
 - [ ] Endogeneous currents
 - [ ] Gating currents? (~100x smaller than ionic currents)
+
+Information loss
 - [ ] Info loss when cutting out artefacts
+
+Protocols to remove or quantify artefacts
 - [ ] Subtraction protocol
 - [ ] Leak ramp
 - [ ] Reversal potential ramp
-
