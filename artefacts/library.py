@@ -75,6 +75,7 @@ def _integrate_current(t, I, Iss, i0, i3, cutoff, dt, invert):
 
     # Increase i0 if necessary    
     i = np.where(iup > cutoff)[0][0]
+    
     iup = iup[i:]
     i0 += i
     
@@ -85,7 +86,7 @@ def _integrate_current(t, I, Iss, i0, i3, cutoff, dt, invert):
     
 
 def estimate_cell_parameters(
-        t, I, T, dV, dt=None, f1=0.05, f2=0.8, f3=0.8, f4=1):
+        t, I, T, dV, dt=None, f1=0.1, f2=0.8, f3=0.8, f4=1):
     """
     
     Arguments:
