@@ -9,7 +9,7 @@ I have tried to keep things as to-the-point as possible, but a lot of extra deta
 
 ## Modelling patch-clamp experiments [![github](../img/github.svg)](artefacts-1-modelling-patch-clamp.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/tree/artefacts/artefacts/artefacts-1-modelling-patch-clamp.ipynb)
 
-The first notebook] describes the uncompensated patch-clamp set up, and shows how to derive both an electrical schematic and an ODE model.
+The first notebook describes the uncompensated patch-clamp set up, and shows how to derive both an electrical schematic and an ODE model.
 
 ## Modelling electronic compensation [![github](../img/github.svg)](artefacts-2-compensation.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/tree/artefacts/artefacts/artefacts-2-compensation.ipynb)
 
