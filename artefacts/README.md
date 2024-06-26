@@ -14,3 +14,12 @@ The first notebook] describes the uncompensated patch-clamp set up, and shows ho
 ## Modelling electronic compensation [![github](../img/github.svg)](artefacts-2-compensation.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/tree/artefacts/artefacts/artefacts-2-compensation.ipynb)
 
 In this notebook we update the model to include the compensation circuitry commonly used in patch-clamp amplifiers.
+
+## Simulating a manual patch clamp experiment [![github](../img/github.svg)](artefacts-3-simulations.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/tree/artefacts/artefacts/artefacts-3-simulations.ipynb)
+
+(Unfinished) In this notebook, we walk through the steps of a manual patch-clamp experiment.
+
+## Simplified models [![github](../img/github.svg)](artefacts-4-simplified.ipynb) [![nbviewer](../img/nbviewer.svg)](https://nbviewer.jupyter.org/github/CardiacModelling/fitting-notebooks/tree/artefacts/artefacts/artefacts-4-simplified.ipynb)
+
+In this notebook we derive simplified models of the compensated voltage clamp setup, which can be used in fitting.
+
