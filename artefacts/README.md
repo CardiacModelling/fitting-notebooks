@@ -23,4 +23,9 @@ In the second notebook we update the model to include the compensation circuitry
 
 In notebook number four we derive simplified models of the compensated voltage clamp setup, which can be used in fitting.
 
+## Appendices
 
+- Electronics
+  - A1. Ideal op amps [![github](../img/github.svg)](appendix-A1-op-amp.ipynb)
+  - A2. Laplace transforms and filters [![github](../img/github.svg)](appendix-A2-laplace-and-filters.ipynb)
+  - A3. Non-ideal op amps [![github](../img/github.svg)](appendix-A3-non-ideal-op-amp.ipynb)
