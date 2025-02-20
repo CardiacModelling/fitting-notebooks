@@ -4,7 +4,8 @@ This repository contains notebooks showing how to fit Myokit models to data usin
 
 A part on fitting AP models is planned, but for now the repository contains:
 
-- A [set of notebooks](ion-currents/README.md) showing how to fit kinetic parameters of ion current models.
+- A series of notebooks showing how to [fit kinetic parameters of ion current models](ion-currents/README.md),
+- and how to include the [amplifier electronics](artefacts/README.md) in models of patch clamp experiments.
 
 ## Requirements
 
